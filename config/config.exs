@@ -31,6 +31,9 @@ config :coaxis, CoaxisWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :coaxis, Coaxis.Mailer, adapter: Swoosh.Adapters.Local
 
+# Configure Ash framework
+config :coaxis, ash_apis: [Coaxis.Accounts]
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",

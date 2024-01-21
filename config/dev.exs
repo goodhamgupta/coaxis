@@ -29,6 +29,10 @@ config :coaxis, CoaxisWeb.Endpoint,
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
+# Ash config
+config :ash_authentication, debug_authentication_failures?: true
+
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

@@ -17,7 +17,9 @@ defmodule Coaxis.Application do
       # Start a worker by calling: Coaxis.Worker.start_link(arg)
       # {Coaxis.Worker, arg},
       # Start to serve requests, typically the last entry
-      CoaxisWeb.Endpoint
+      CoaxisWeb.Endpoint,
+      # Ash authentication
+      {AshAuthentication.Supervisor, otp_app: :coaxis}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
