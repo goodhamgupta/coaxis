@@ -5,7 +5,7 @@ defmodule Coaxis.MixProject do
     [
       app: :coaxis,
       version: "0.1.0",
-      elixir: "~> 1.14",
+      elixir: "~> 1.15",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
@@ -52,8 +52,10 @@ defmodule Coaxis.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:plug_cowboy, "~> 2.5"},
       {:ash, "~> 2.18.2"},
-      {:ash_postgres, "~> 1.4.0"},
-      {:ash_phoenix, "~> 1.2.26"}
+      {:ash_phoenix, "~> 1.2"},
+      {:ash_postgres, "~> 1.4"},
+      {:ash_authentication, "~> 3.12"},
+      {:ash_authentication_phoenix, "~> 1.9"}
     ]
   end
 
