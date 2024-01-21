@@ -50,7 +50,10 @@ defmodule Coaxis.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:ash, "~> 2.18.2"},
+      {:ash_postgres, "~> 1.4.0"},
+      {:ash_phoenix, "~> 1.2.26"}
     ]
   end
 
