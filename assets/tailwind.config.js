@@ -10,12 +10,14 @@ module.exports = {
     "./js/**/*.js",
     "../lib/coaxis_web.ex",
     "../lib/coaxis_web/**/*.*ex",
-    "../deps/ash_authentication_phoenix/**/*.ex", 
+    "../deps/ash_authentication_phoenix/**/*.ex",
   ],
   theme: {
     extend: {
       colors: {
         brand: "#FD4F00",
+        'mono-black': 'var(--Mono-Black, #000)',
+        'mono-white': ' var(--Mono-White, #FFF)'
       }
     },
   },
