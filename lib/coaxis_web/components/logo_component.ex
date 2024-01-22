@@ -3,7 +3,7 @@ defmodule CoaxisWeb.LogoComponent do
 
   use CoaxisWeb, :live_component
 
-  def logo(assigns) do
+  def render(assigns) do
     ~H"""
     <div class="shrink-0 w-[57px] h-[57px] relative overflow-hidden">
       <svg

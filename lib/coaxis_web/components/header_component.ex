@@ -7,7 +7,7 @@ defmodule CoaxisWeb.HeaderComponent do
   slot :search_block, required: true
   slot :navigation_block, required: true
 
-  def header(assigns) do
+  def render(assigns) do
     ~H"""
     <div class="flex flex-row gap-[30px] items-center justify-start absolute left-0 top-[calc(50%_-_20.5px)]">
       <%= render_slot(@logo_block) %>

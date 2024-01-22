@@ -1,10 +1,6 @@
 defmodule CoaxisWeb.MenuComponent do
   use Phoenix.Component
 
-  use CoaxisWeb, :live_component
-
-  # slot :menu_block, required: true
-
   def menu(assigns) do
     ~H"""
     <div class="bg-[#ffffff] w-[2440px] h-[2451px] relative overflow-hidden">
@@ -4463,13 +4459,6 @@ defmodule CoaxisWeb.MenuComponent do
         </div>
       </div>
     </div>
-
-
-    <%!-- <div class="bg-mono-light-grey w-[1440px] h-[75px] relative overflow-hidden">
-      <div class="w-[1350px] h-[57px] absolute left-[calc(50%_-_675px)] top-[calc(50%_-_28.5px)]">
-        <%= render_slot(@menu_block) %>
-      </div>
-    </div> --%>
-    """
+  """
   end
 end

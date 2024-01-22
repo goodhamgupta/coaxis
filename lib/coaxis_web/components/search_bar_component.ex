@@ -3,7 +3,7 @@ defmodule CoaxisWeb.SearchBarComponent do
 
   use CoaxisWeb, :live_component
 
-  def search_bar(assigns) do
+  def render(assigns) do
     ~H"""
     <div
       class="bg-mono-white rounded-md w-[450px] h-9 relative overflow-hidden"
