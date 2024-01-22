@@ -9,7 +9,8 @@ defmodule Coaxis.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      compilers: Mix.compilers() ++ [:surface]
     ]
   end
 
@@ -38,7 +39,7 @@ defmodule Coaxis.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 0.20.1"},
+      {:phoenix_live_view, "~> 0.19.0"},
       {:floki, ">= 0.30.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.8.2"},
       {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
@@ -55,7 +56,8 @@ defmodule Coaxis.MixProject do
       {:ash_phoenix, "~> 1.2"},
       {:ash_postgres, "~> 1.4"},
       {:ash_authentication, "~> 3.12"},
-      {:ash_authentication_phoenix, "~> 1.9"}
+      {:ash_authentication_phoenix, "~> 1.9"},
+      {:surface, "~> 0.11.1"}
     ]
   end
 

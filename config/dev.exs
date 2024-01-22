@@ -58,11 +58,12 @@ config :ash_authentication, debug_authentication_failures?: true
 
 # Watch static and templates for browser reloading.
 config :coaxis, CoaxisWeb.Endpoint,
+  reloadable_compilers: [:gettext, :elixir, :app, :surface],
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/coaxis_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/coaxis_web/(controllers|live|components)/.*(ex|heex|sface|js)$"
     ]
   ]
 

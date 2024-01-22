@@ -22,7 +22,7 @@ defmodule CoaxisWeb.Router do
   scope "/", CoaxisWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", PageController
 
     # TODO: Liveview based auth in Ash. Fix this after implementing liveview pages.
     # ash_authentication_live_session :authentication_required,
