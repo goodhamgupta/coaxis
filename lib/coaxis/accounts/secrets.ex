@@ -4,12 +4,13 @@ defmodule Coaxis.Accounts.Secrets do
 
   def secret_for([:authentication, :tokens, :signing_secret], Coaxis.Accounts.User, _) do
     case Application.get_env(:coaxis, CoaxisWeb.Endpoint) do
-      endpoint_config ->
-        Keyword.fetch(endpoint_config, :secret_key_base)
-      nil ->
+      :error ->
         # Log missing endpoint config
         Logger.error("Endpoint config missing from application config")
-        nil
+        :error
+
+      endpoint_config ->
+        Keyword.fetch(endpoint_config, :secret_key_base)
     end
   end
 end
