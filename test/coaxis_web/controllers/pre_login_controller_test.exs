@@ -1,4 +1,4 @@
-defmodule CoaxisWeb.PageControllerTest do
+defmodule CoaxisWeb.PreLoginControllerTest do
   use CoaxisWeb.ConnCase
 
   test "GET /", %{conn: conn} do
