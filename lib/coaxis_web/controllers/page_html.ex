@@ -5,7 +5,6 @@ defmodule CoaxisWeb.PageHTML do
     ButtonComponent,
     HeaderComponent,
     LogoComponent,
-    NavigationPageTitleComponent,
     SearchBarComponent
   }
 
