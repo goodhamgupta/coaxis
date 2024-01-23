@@ -1,5 +1,4 @@
 defmodule CoaxisWeb.AuthController do
-
   use CoaxisWeb, :controller
   use AshAuthentication.Phoenix.Controller
 

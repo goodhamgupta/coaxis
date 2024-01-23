@@ -32,7 +32,6 @@ config :coaxis, CoaxisWeb.Endpoint,
 # Ash config
 config :ash_authentication, debug_authentication_failures?: true
 
-
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

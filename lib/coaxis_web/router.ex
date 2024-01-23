@@ -35,9 +35,13 @@ defmodule CoaxisWeb.Router do
     #           live "/", ProjectLive.Index, :index
     # end
 
-
     # Auth specific endpoints
-    sign_in_route(on_mount: [{Coaxis.LiveUserAuth, :live_no_user}], register_path: "/register", reset_path: "/reset")
+    sign_in_route(
+      on_mount: [{Coaxis.LiveUserAuth, :live_no_user}],
+      register_path: "/register",
+      reset_path: "/reset"
+    )
+
     sign_out_route AuthController
     auth_routes_for Coaxis.Accounts.User, to: AuthController
     reset_route []
