@@ -2,7 +2,6 @@ defmodule CoaxisWeb.MarketplaceLive.PreLogin do
   use CoaxisWeb, :live_view
 
   import CoaxisWeb.{
-    MenuComponent,
     ButtonComponent,
     HeaderComponent,
     SearchBarComponent,
