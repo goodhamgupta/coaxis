@@ -7,7 +7,7 @@
       <.search_bar text="Search" />
     </:search_block>
     <:button_block>
-      <.custom_button text="Join" />
+      <%= live_component(CoaxisWeb.ButtonComponent, text: "Join", click_event: "signup") %>
     </:button_block>
   </.menu_header>
 
@@ -2782,22 +2782,22 @@
       <img
         class="rounded-md shrink-0 w-[352.17px] h-[409px] relative"
         style="object-fit: cover"
-                              src={~p"/images/carousell_card_1.png"}
+        src={~p"/images/carousell_card_1.png"}
       />
       <img
         class="rounded-md shrink-0 w-[356.23px] h-[409px] relative"
         style="object-fit: cover"
-                              src={~p"/images/carousell_card_2.png"}
+        src={~p"/images/carousell_card_2.png"}
       />
       <img
         class="rounded-md shrink-0 w-[360px] h-[409px] relative"
         style="object-fit: cover"
-                              src={~p"/images/carousell_card_3.png"}
+        src={~p"/images/carousell_card_3.png"}
       />
       <img
         class="rounded-md shrink-0 w-[334px] h-[409px] relative"
         style="object-fit: cover"
-                              src={~p"/images/carousell_card_4.png"}
+        src={~p"/images/carousell_card_4.png"}
       />
     </div>
   </div>
