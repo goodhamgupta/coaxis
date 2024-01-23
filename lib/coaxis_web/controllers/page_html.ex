@@ -1,16 +1,13 @@
 defmodule CoaxisWeb.PageHTML do
   use CoaxisWeb, :html
 
-  # alias CoaxisWeb.{
-  #   ButtonComponent,
-  #   HeaderComponent,
-  #   LogoComponent,
-  #   MenuComponent,
-  #   NavigationPageTitleComponent,
-  #   SearchBarComponent
-  # }
-
-  import CoaxisWeb.MenuComponent
+  import CoaxisWeb.{
+    ButtonComponent,
+    HeaderComponent,
+    LogoComponent,
+    NavigationPageTitleComponent,
+    SearchBarComponent
+  }
 
   embed_templates "page_html/*"
 end

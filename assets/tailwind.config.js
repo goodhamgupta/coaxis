@@ -18,7 +18,7 @@ module.exports = {
         brand: "#FD4F00",
         'mono-black': 'var(--Mono-Black, #000)',
         'mono-white': 'var(--Mono-White, #FFF)',
-        'mono-grey': 'var(--Mono-Light-Grey, #F6F6F6)',
+        'mono-grey': 'var(--Mono-Light-Grey, #bababa)',
         'mono-light-grey': 'var(--Mono-Light-Grey, #F6F6F6)'
       }
     },

@@ -3,16 +3,10 @@ defmodule CoaxisWeb.NavigationPageTitleComponent do
 
   attr :title, :string, required: true
 
-  slot :button, required: true
+  slot :button, required: false
 
-  def render(assigns) do
+  def nav_page_title(assigns) do
     ~H"""
-    <div class="flex flex-row gap-[45px] items-center justify-end relative">
-      <div class="text-mono-black text-left font-['OpenSans-Regular',_sans-serif] text-sm font-normal relative">
-        @title
-      </div>
-      @button
-    </div>
     """
   end
 end

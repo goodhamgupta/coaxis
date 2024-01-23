@@ -1,15 +1,13 @@
 defmodule CoaxisWeb.LogoComponent do
   use Phoenix.Component
 
-  use CoaxisWeb, :live_component
-
-  def render(assigns) do
+  def logo(assigns) do
     ~H"""
     <div class="shrink-0 w-[57px] h-[57px] relative overflow-hidden">
       <svg
         class="h-100 absolute right-[7.13%] left-[7.13%] w-[85.74%] bottom-[0%] top-[0%] h-[100%] overflow-visible"
         style=""
-        width="49"
+        width="89"
         height="57"
         viewBox="0 0 49 57"
         fill="none"
