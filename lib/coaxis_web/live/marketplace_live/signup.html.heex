@@ -50,66 +50,51 @@
       Sign up
     </div>
   </button>
-  <div class="bg-mono-white rounded-md border-solid border-mono-grey border pt-1 pr-5 pb-1 pl-5 flex flex-row gap-2.5 items-center justify-start w-[300px] h-[50px] absolute left-[503px] top-[174px] overflow-hidden">
-    <div class="bg-mono-light-grey shrink-0 w-[30px] h-[30px] relative overflow-hidden">
-      <img
-        class="w-9 h-[39px] absolute left-[-3px] top-[-4px]"
-        style="object-fit: cover"
-        src={~p"/images/google_logo.png"}
-      />
-    </div>
-    <div class="text-[#000000] text-center font-['OpenSans-SemiBold',_sans-serif] text-base leading-[154.68%] font-semibold relative">
-      Sign up with Google
-    </div>
-  </div>
-  <div class="bg-mono-white rounded-md border-solid border-mono-grey border pt-1 pr-5 pb-1 pl-5 flex flex-row gap-2.5 items-center justify-start w-[300px] h-[50px] absolute left-[503px] top-[244px] overflow-hidden">
-    <div class="shrink-0 w-[30px] h-[30px] relative overflow-hidden">
-      <img
-        class="w-9 h-[39px] absolute left-[-3px] top-[-4px]"
-        style="object-fit: cover"
-        src={~p"/images/linkedin_logo.png"}
-      />
-    </div>
-    <div class="text-[#000000] text-center font-['OpenSans-SemiBold',_sans-serif] text-base leading-[154.68%] font-semibold relative">
-      Sign up with LinkedIn
-    </div>
-  </div>
-  <div class="bg-mono-white rounded-md border-solid border-mono-grey border pt-1 pr-5 pb-1 pl-5 flex flex-row gap-2.5 items-center justify-start w-[300px] h-[50px] absolute left-[503px] top-[314px] overflow-hidden">
-    <div class="shrink-0 w-[30px] h-[30px] relative overflow-hidden">
-      <img
-        class="w-9 h-[39px] absolute left-[-3px] top-[-4px]"
-        style="object-fit: cover"
-        src={~p"/images/microsoft_logo.png"}
-      />
-    </div>
-    <div class="text-[#000000] text-center font-['OpenSans-SemiBold',_sans-serif] text-base leading-[154.68%] font-semibold relative">
-      Sign up with Microsoft
-    </div>
-  </div>
-  <div class="bg-mono-white rounded-md border-solid border-mono-grey border pt-1 pr-5 pb-1 pl-5 flex flex-row gap-2.5 items-center justify-start w-[300px] h-[50px] absolute left-[503px] top-96 overflow-hidden">
-    <div class="shrink-0 w-[30px] h-[30px] relative overflow-hidden">
-      <img
-        class="w-9 h-[39px] absolute left-[-3px] top-[-4px]"
-        style="object-fit: cover"
-        src={~p"/images/x_logo.png"}
-      />
-    </div>
-    <div class="text-[#000000] text-center font-['OpenSans-SemiBold',_sans-serif] text-base leading-[154.68%] font-semibold relative">
-      Sign up with X (Twitter)
-    </div>
-  </div>
-  <div class="bg-mono-white rounded-md border-solid border-mono-grey border pt-1 pr-5 pb-1 pl-5 flex flex-row gap-2.5 items-center justify-start w-[300px] h-[50px] absolute left-[503px] top-[454px] overflow-hidden">
-    <div class="shrink-0 w-[30px] h-[30px] relative overflow-hidden">
-      <img
-        class="w-9 h-[39px] absolute left-[-3px] top-[-4px]"
-        style="object-fit: cover"
-        src={~p"/images/instagram_logo.png"}
-      />
-    </div>
-    <div class="text-[#000000] text-center font-['OpenSans-SemiBold',_sans-serif] text-base leading-[154.68%] font-semibold relative">
-      Sign up with Instagram
-    </div>
-  </div>
+  <.live_component
+    module={CoaxisWeb.OauthButtonComponent}
+    id="oauth-google-btn"
+    text="Sign up with Google"
+    click_event="oauth_google_signup"
+    image_src={~p'/images/google_logo.png'}
+    order="0"
+    .
+  />
+  <.live_component
+    module={CoaxisWeb.OauthButtonComponent}
+    id="oauth-linkedin-btn"
+    text="Sign up with LinkedIn"
+    click_event="oauth_linkedin_signup"
+    image_src={~p'/images/linkedin_logo.png'}
+    order="1"
+    .
+  />
+  <.live_component
+    module={CoaxisWeb.OauthButtonComponent}
+    id="oauth-microsoft-btn"
+    text="Sign up with Microsoft"
+    click_event="oauth_microsoft_signup"
+    image_src={~p'/images/microsoft_logo.png'}
+    order="2"
+    .
+  />
+  <.live_component
+    module={CoaxisWeb.OauthButtonComponent}
+    id="oauth-x-btn"
+    text="Sign up with X(Twitter)"
+    click_event="oauth_x_signup"
+    image_src={~p'/images/x_logo.png'}
+    order="4"
+    .
+  />
+  <.live_component
+    module={CoaxisWeb.OauthButtonComponent}
+    id="oauth-instagram-btn"
+    text="Sign up with Instagram"
+    click_event="oauth_instagram_signup"
+    image_src={~p'/images/instagram_logo.png'}
+    order="4"
+    .
+  />
   <div class="bg-mono-light-grey rounded border-solid border-mono-black border w-6 h-6 absolute left-[101px] top-[392px] overflow-hidden">
     <svg
       class="h-[auto] absolute right-[12.5%] left-[12.5%] w-[75%] bottom-[12.5%] top-[12.5%] h-[75%] overflow-visible"

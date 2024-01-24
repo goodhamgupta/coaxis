@@ -1,9 +1,9 @@
 defmodule CoaxisWeb.MarketplaceLive.Signup do
   use CoaxisWeb, :live_view
 
-  import CoaxisWeb.{FormFieldComponent, CoreComponents}
+  import CoaxisWeb.{FormFieldComponent, CoreComponents, OauthButtonComponent}
 
-  alias CoaxisWeb.FormFieldComponent
+  alias CoaxisWeb.{FormFieldComponent, OauthButtonComponent}
   alias AshAuthentication.{Info, Strategy}
 
   @spec mount(any(), any(), any()) :: {:ok, any()}
