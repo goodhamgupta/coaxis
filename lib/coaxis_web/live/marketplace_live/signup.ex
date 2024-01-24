@@ -55,4 +55,8 @@ defmodule CoaxisWeb.MarketplaceLive.Signup do
 
     {:noreply, assign(socket, form: form)}
   end
+
+  def handle_event("log_in", _params, socket) do
+    {:noreply, redirect(socket, to: "/sign-in")}
+  end
 end
