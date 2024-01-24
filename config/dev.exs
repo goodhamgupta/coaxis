@@ -31,6 +31,7 @@ config :coaxis, CoaxisWeb.Endpoint,
 
 # Ash config
 config :ash_authentication, debug_authentication_failures?: true
+config :ash, :pub_sub, debug?: true
 
 # ## SSL Support
 #

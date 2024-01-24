@@ -8,7 +8,7 @@ defmodule CoaxisWeb.MarketplaceLive.Signup do
 
   @spec mount(any(), any(), any()) :: {:ok, any()}
   def mount(_params, _session, socket) do
-    socket = assign(socket, %{is_dimmed: true, form: to_form(%{email: "test"})})
+    socket = assign(socket, %{is_dimmed: true, form: to_form(%{})})
     {:ok, socket}
   end
 
