@@ -77,13 +77,14 @@
     order="2"
     .
   />
-  <.live_component
+  <%!-- #TODO: These buttons are not rendering as expected --%>
+  <%!-- <.live_component
     module={CoaxisWeb.OauthButtonComponent}
     id="oauth-x-btn"
     text="Sign up with X(Twitter)"
     click_event="oauth_x_signup"
     image_src={~p'/images/x_logo.png'}
-    order="4"
+    order="2"
     .
   />
   <.live_component
@@ -92,9 +93,9 @@
     text="Sign up with Instagram"
     click_event="oauth_instagram_signup"
     image_src={~p'/images/instagram_logo.png'}
-    order="4"
+    order="3"
     .
-  />
+  /> --%>
   <div class="bg-mono-light-grey rounded border-solid border-mono-black border w-6 h-6 absolute left-[101px] top-[392px] overflow-hidden">
     <svg
       class="h-[auto] absolute right-[12.5%] left-[12.5%] w-[75%] bottom-[12.5%] top-[12.5%] h-[75%] overflow-visible"
