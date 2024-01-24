@@ -26,14 +26,14 @@ defmodule CoaxisWeb.Router do
 
     # TODO: Liveview based auth in Ash. Fix this after implementing liveview pages.
     # ash_authentication_live_session :authentication_required,
-    #   on_mount: {MyAppWeb.LiveUserAuth, :live_user_required} do
-    #           live "/protected_route", ProjectLive.Index, :index
+    #   on_mount: {CoaxisWeb.LiveUserAuth, :live_user_required} do
+    #   live "/home", MarketplaceLive.PreLogin, :home
     # end
 
-    # ash_authentication_live_session :authentication_optional,
-    #   on_mount: {MyAppWeb.LiveUserAuth, :live_user_optional} do
-    #           live "/", ProjectLive.Index, :index
-    # end
+    ash_authentication_live_session :authentication_optional,
+      on_mount: {CoaxisWeb.LiveUserAuth, :live_user_optional} do
+      live "/", MarketplaceLive.PreLogin, :pre_login
+    end
 
     # Auth specific endpoints
     sign_in_route(
