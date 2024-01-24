@@ -1,3 +1,15 @@
+<%= if @is_dimmed do %>
+  <div
+    class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75"
+    style="padding-top: 427px; padding-right: 284px; padding-bottom: 1703px; padding-left: 283px;"
+  >
+    <%= live_render(@socket, CoaxisWeb.MarketplaceLive.Signup,
+      id: "signup-component",
+      assigns: assigns
+    ) %>
+  </div>
+<% end %>
+
 <div class="bg-[#ffffff] w-[1440px] h-[2451px] relative overflow-hidden">
   <.menu_header title="About">
     <:logo_block>
@@ -2413,7 +2425,7 @@
                 <img
                   class="w-[18.55px] h-[18.55px] absolute left-[3.86px] top-[3.86px]"
                   style="object-fit: cover"
-                  src="image-529.png"
+                  src={~p"/images/abc_impact_logo.png"}
                 />
               </div>
               <div class="flex flex-row gap-[3.09px] items-center justify-start absolute left-[34.01px] top-[3.09px]">

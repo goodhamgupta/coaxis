@@ -8,15 +8,19 @@ defmodule CoaxisWeb.MarketplaceLive.PreLogin do
     LogoComponent
   }
 
+  import CoaxisWeb.MarketplaceLive.Signup
+
   def mount(_params, _session, socket) do
-    socket = assign(socket, :message, "Hello World")
+    socket = assign(socket, %{is_dimmed: false})
     {:ok, socket}
   end
 
   def handle_event("signup", _, socket) do
     IO.puts("***************************")
-    IO.puts("signup")
+    new_state = not socket.assigns[:is_dimmed]
+    IO.puts(socket.assigns[:is_dimmed])
+    IO.puts(new_state)
     IO.puts("***************************")
-    {:noreply, socket}
+    {:noreply, assign(socket, is_dimmed: new_state)}
   end
 end

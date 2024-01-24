@@ -22,8 +22,6 @@ defmodule CoaxisWeb.Router do
   scope "/", CoaxisWeb do
     pipe_through :browser
 
-    live "/", MarketplaceLive.PreLogin, :pre_login
-
     # TODO: Liveview based auth in Ash. Fix this after implementing liveview pages.
     # ash_authentication_live_session :authentication_required,
     #   on_mount: {CoaxisWeb.LiveUserAuth, :live_user_required} do
