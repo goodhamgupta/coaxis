@@ -1,10 +1,8 @@
 defmodule CoaxisWeb.MarketplaceLive.Signup do
   use CoaxisWeb, :live_view
 
-  import CoaxisWeb.{FormFieldComponent, CoreComponents, OauthButtonComponent}
-
-  alias CoaxisWeb.{FormFieldComponent, OauthButtonComponent}
   alias AshAuthentication.{Info, Strategy}
+  alias Coaxis.Accounts.User
 
   @spec mount(any(), any(), any()) :: {:ok, any()}
   def mount(_params, _session, socket) do
@@ -45,11 +43,14 @@ defmodule CoaxisWeb.MarketplaceLive.Signup do
     strategy = Info.strategy!(User, :password)
 
     case Strategy.action(strategy, :register, cur_params) do
-      {:ok, _user} ->
+      {:ok, user} ->
         # TODO: Publish user_id
-        {:noreply, redirect(socket, to: "/")}
+        {:noreply, push_navigate(socket, to: "/personalization/#{user.id}")}
 
       {:error, changeset} ->
+        IO.puts("***************************")
+        IO.inspect(changeset)
+        IO.puts("***************************")
         {:noreply, assign(socket, form: to_form(changeset))}
     end
 

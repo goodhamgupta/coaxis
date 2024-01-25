@@ -1,0 +1,66 @@
+<div class="bg-[#ffffff] w-[1440px] h-[2451px] relative overflow-hidden">
+  <.menu_header title="About">
+    <:logo_block>
+      <.logo />
+    </:logo_block>
+    <:search_block>
+      <.search_bar text="Search" />
+    </:search_block>
+    <:button_block>
+      <.live_component
+        module={CoaxisWeb.ButtonComponent}
+        id="join-btn"
+        text="Join"
+        click_event="signup"
+        .
+      />
+    </:button_block>
+  </.menu_header>
+  <div class="text-[#000000] text-center font-['OpenSans-Bold',_sans-serif] text-3xl leading-[154.68%] font-bold absolute left-[calc(50%_-_124px)] top-[282px]">
+    I’m interested in
+  </div>
+  <div class="text-[#000000] text-center font-['OpenSans-Regular',_sans-serif] text-sm leading-[154.68%] font-normal absolute left-[calc(50%_-_233px)] top-[339px]">
+    You can select multiple options, to help you find what you’re looking for
+  </div>
+  <div class="flex flex-row gap-3.5 items-center justify-center flex-wrap w-[601px] absolute left-[calc(50%_-_301px)] top-[424px]">
+    <div class="bg-mono-light-grey rounded-[10px] pt-1 pr-2.5 pb-1 pl-2.5 flex flex-row gap-1 items-center justify-center shrink-0 h-[39px] relative overflow-hidden">
+      <div class="text-mono-black text-center font-['OpenSans-Bold',_sans-serif] text-lg font-bold relative">
+        Fundraising
+      </div>
+    </div>
+    <div class="bg-mono-light-grey rounded-[10px] pt-1 pr-2.5 pb-1 pl-2.5 flex flex-row gap-1 items-center justify-center shrink-0 h-[39px] relative overflow-hidden">
+      <div class="text-mono-black text-center font-['OpenSans-Bold',_sans-serif] text-lg font-bold relative">
+        Supporting impact ventures
+      </div>
+    </div>
+    <div class="bg-mono-light-grey rounded-[10px] pt-1 pr-2.5 pb-1 pl-2.5 flex flex-row gap-1 items-center justify-center shrink-0 h-[39px] relative overflow-hidden">
+      <div class="text-mono-black text-center font-['OpenSans-Bold',_sans-serif] text-lg font-bold relative">
+        Supporting non-profit organisations/projects
+      </div>
+    </div>
+    <div class="bg-mono-light-grey rounded-[10px] pt-1 pr-2.5 pb-1 pl-2.5 flex flex-row gap-1 items-center justify-center shrink-0 h-[39px] relative overflow-hidden">
+      <div class="text-mono-black text-center font-['OpenSans-Bold',_sans-serif] text-lg font-bold relative">
+        Networking / looking for partnerships
+      </div>
+    </div>
+    <div class="bg-mono-light-grey rounded-[10px] pt-1 pr-2.5 pb-1 pl-2.5 flex flex-row gap-1 items-center justify-center shrink-0 h-[39px] relative overflow-hidden">
+      <div class="text-mono-black text-center font-['OpenSans-Bold',_sans-serif] text-lg font-bold relative">
+        Just browsing
+      </div>
+    </div>
+  </div>
+  <div class="absolute" style="inset: 0">
+    <div class="flex flex-row gap-0 items-start justify-start w-[150px] absolute left-[512px] top-[673px]">
+      <div class="bg-demo-foundation-white rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center flex-1 relative overflow-hidden">
+        <div class="text-demo-foundation-black text-left font-h-5-500-font-family text-h-5-500-font-size leading-h-5-500-line-height font-h-5-500-font-weight relative flex items-center justify-start">
+          Skip for now
+        </div>
+      </div>
+    </div>
+    <div class="bg-demo-foundation-black rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center w-[150px] absolute left-[776px] top-[673px] overflow-hidden">
+      <div class="text-demo-foundation-white text-left font-h-5-500-font-family text-h-5-500-font-size leading-h-5-500-line-height font-h-5-500-font-weight relative flex items-center justify-start">
+        Next
+      </div>
+    </div>
+  </div>
+</div>

@@ -20,6 +20,23 @@
       class="bg-mono-light-grey rounded-md border-solid border-mono-grey border pt-3 pr-5 pb-3 pl-5 flex flex-row gap-2.5 items-start justify-start w-[300px] h-[50px] absolute left-[97px] top-[314px] overflow-hidden"
     />
   </form>
+  <div class="text-[#000000] text-center font-['-',_sans-serif] text-sm leading-[154.68%] font-normal absolute left-[calc(50%_-_304px)] top-[393px]">
+    <span>
+      <span class="by-signing-up-you-agree-to-our-t-cs-span">
+        By Signing up you agree to our
+      </span>
+      <span class="by-signing-up-you-agree-to-our-t-cs-span2">T&amp;Cs</span>
+    </span>
+  </div>
+  <button
+    type="button"
+    class="bg-mono-black rounded-md pt-1.5 pr-[29px] pb-1.5 pl-[29px] flex flex-row gap-2.5 items-center justify-center w-[302px] h-[50px] absolute left-[95px] top-[451px]"
+    phx-click="submit"
+  >
+    <div class="text-mono-white text-center font-['OpenSans-Bold',_sans-serif] text-base font-bold relative">
+      Sign up
+    </div>
+  </button>
   <div class="text-[#000000] text-center font-['OpenSans-Bold',_sans-serif] text-3xl leading-[154.68%] font-bold absolute left-[calc(50%_-_121px)] top-[66px]">
     Sign Up to Co-Axis
   </div>
@@ -36,22 +53,6 @@
       </button>
     </span>
   </div>
-  <div class="text-[#000000] text-center font-['-',_sans-serif] text-sm leading-[154.68%] font-normal absolute left-[calc(50%_-_304px)] top-[393px]">
-    <span>
-      <span class="by-signing-up-you-agree-to-our-t-cs-span">
-        By Signing up you agree to our
-      </span>
-      <span class="by-signing-up-you-agree-to-our-t-cs-span2">T&amp;Cs</span>
-    </span>
-  </div>
-  <button
-    type="button"
-    class="bg-mono-black rounded-md pt-1.5 pr-[29px] pb-1.5 pl-[29px] flex flex-row gap-2.5 items-center justify-center w-[302px] h-[50px] absolute left-[95px] top-[451px]"
-  >
-    <div class="text-mono-white text-center font-['OpenSans-Bold',_sans-serif] text-base font-bold relative">
-      Sign up
-    </div>
-  </button>
   <.live_component
     module={CoaxisWeb.OauthButtonComponent}
     id="oauth-google-btn"

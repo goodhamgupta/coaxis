@@ -22,11 +22,11 @@ defmodule CoaxisWeb.Router do
   scope "/", CoaxisWeb do
     pipe_through :browser
 
-    # TODO: Liveview based auth in Ash. Fix this after implementing liveview pages.
-    # ash_authentication_live_session :authentication_required,
-    #   on_mount: {CoaxisWeb.LiveUserAuth, :live_user_required} do
-    #   live "/home", MarketplaceLive.PreLogin, :home
-    # end
+    ash_authentication_live_session :authentication_required,
+      on_mount: {CoaxisWeb.LiveUserAuth, :live_user_required} do
+      # live "/home", MarketplaceLive.PreLogin, :home
+      live "/personalization/:id", OnboardingLive.Personalization, :personalization
+    end
 
     ash_authentication_live_session :authentication_optional,
       on_mount: {CoaxisWeb.LiveUserAuth, :live_user_optional} do
