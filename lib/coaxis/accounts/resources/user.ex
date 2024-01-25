@@ -3,6 +3,8 @@ defmodule Coaxis.Accounts.Resources.User do
     data_layer: AshPostgres.DataLayer,
     extensions: [AshAuthentication]
 
+  alias Coaxis.Accounts.Resources.{Interest, UserInterest}
+
   attributes do
     uuid_primary_key :id
     attribute :email, :ci_string, allow_nil?: false
@@ -43,6 +45,14 @@ defmodule Coaxis.Accounts.Resources.User do
 
   identities do
     identity :unique_email, [:email]
+  end
+
+  relationships do
+    many_to_many :interests, Interest do
+      through UserInterest
+      source_attribute_on_join_resource :user_id
+      destination_attribute_on_join_resource :interest_id
+    end
   end
 
   code_interface do

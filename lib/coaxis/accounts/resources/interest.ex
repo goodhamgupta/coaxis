@@ -2,6 +2,8 @@ defmodule Coaxis.Accounts.Resources.Interest do
   use Ash.Resource,
     data_layer: AshPostgres.DataLayer
 
+  alias Coaxis.Accounts.Resources.{User, UserInterest}
+
   attributes do
     uuid_primary_key :id
     attribute :name, :ci_string, allow_nil?: false
@@ -31,6 +33,14 @@ defmodule Coaxis.Accounts.Resources.Interest do
     define :get_by_id, args: [:id], action: :by_id
     define :get_by_type, args: [:type], action: :by_type
     define :get_by_name, args: [:name], action: :by_name
+  end
+
+  relationships do
+    many_to_many :users, User  do
+      through UserInterest
+      source_attribute_on_join_resource :interest_id
+      destination_attribute_on_join_resource :user_id
+    end
   end
 
   actions do
