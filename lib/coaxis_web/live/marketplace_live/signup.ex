@@ -2,7 +2,7 @@ defmodule CoaxisWeb.MarketplaceLive.Signup do
   use CoaxisWeb, :live_view
 
   alias AshAuthentication.{Info, Strategy}
-  alias Coaxis.Accounts.User
+  alias Coaxis.Accounts.Resources.User
 
   @spec mount(any(), any(), any()) :: {:ok, any()}
   def mount(_params, _session, socket) do

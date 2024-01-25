@@ -7,7 +7,7 @@ defmodule CoaxisWeb.OnboardingLive.Personalization do
     LogoComponent
   }
 
-  alias Coaxis.Accounts.User
+  alias Coaxis.Accounts.Resources.User
 
   def mount(%{"id" => id}, _session, socket) do
     socket = assign(socket, user_id: id, form: to_form(%{}))

@@ -1,4 +1,4 @@
-defmodule Coaxis.Accounts.User do
+defmodule Coaxis.Accounts.Resources.User do
   use Ash.Resource,
     data_layer: AshPostgres.DataLayer,
     extensions: [AshAuthentication]
@@ -9,6 +9,7 @@ defmodule Coaxis.Accounts.User do
     attribute :first_name, :ci_string, allow_nil?: true
     attribute :last_name, :ci_string, allow_nil?: true
     attribute :hashed_password, :string, allow_nil?: false, sensitive?: true
+
     create_timestamp :created_at
     update_timestamp :updated_at
   end

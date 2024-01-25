@@ -42,7 +42,7 @@ defmodule CoaxisWeb.Router do
     )
 
     sign_out_route AuthController
-    auth_routes_for Coaxis.Accounts.User, to: AuthController
+    auth_routes_for Coaxis.Accounts.Resources.User, to: AuthController
     reset_route []
   end
 
