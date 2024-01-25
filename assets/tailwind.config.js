@@ -21,6 +21,7 @@ module.exports = {
         'mono-grey': 'var(--Mono-Light-Grey, #bababa)',
         'mono-light-grey': 'var(--Mono-Light-Grey, #F6F6F6)',
         'demo-foundation-white': 'var(--Demo-Foundation-White, #FDFDFD)',
+        "demo-foundation-black": 'var(--Demo-Foundation-Black, #1c1c1e)',
         'agriculture': 'var(--Agriculture, #A15B1E)',
         'air': 'var(--Air, #A9DBE8)',
         'biodiversity-econsystems': 'var(--biodiversity-econsystems, #AFCA24)',

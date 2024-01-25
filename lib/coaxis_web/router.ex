@@ -22,15 +22,16 @@ defmodule CoaxisWeb.Router do
   scope "/", CoaxisWeb do
     pipe_through :browser
 
-    ash_authentication_live_session :authentication_required,
-      on_mount: {CoaxisWeb.LiveUserAuth, :live_user_required} do
-      # live "/home", MarketplaceLive.PreLogin, :home
-      live "/personalization/:id", OnboardingLive.Personalization, :personalization
-    end
+    # ash_authentication_live_session :authentication_required,
+    #   on_mount: {CoaxisWeb.LiveUserAuth, :live_user_required} do
+    #   # live "/home", MarketplaceLive.PreLogin, :home
+    #   live "/personalization/:id", OnboardingLive.Personalization, :personalization
+    # end
 
     ash_authentication_live_session :authentication_optional,
       on_mount: {CoaxisWeb.LiveUserAuth, :live_user_optional} do
       live "/", MarketplaceLive.PreLogin, :pre_login
+      live "/personalization/:id", OnboardingLive.Personalization, :personalization
     end
 
     # Auth specific endpoints

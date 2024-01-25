@@ -10,8 +10,7 @@ defmodule CoaxisWeb.OnboardingLive.Personalization do
   alias Coaxis.Accounts.User
 
   def mount(%{"id" => id}, _session, socket) do
-    user = User.get_by_id!(id)
-    socket = assign(socket, user: user, form: to_form(%{}))
+    socket = assign(socket, user_id: id, form: to_form(%{}))
     {:ok, socket}
   end
 end
