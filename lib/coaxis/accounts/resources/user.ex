@@ -52,13 +52,14 @@ defmodule Coaxis.Accounts.Resources.User do
       through UserInterest
       source_attribute_on_join_resource :user_id
       destination_attribute_on_join_resource :interest_id
+      read_action :by_id
     end
   end
 
   code_interface do
     define_for Coaxis.Accounts
     define :create, action: :create
-    define :read_all, action: :read
+    define :read, action: :read
     define :update, action: :update
     define :destroy, action: :destroy
     define :get_by_id, args: [:id], action: :by_id

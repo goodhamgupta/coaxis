@@ -27,7 +27,7 @@ defmodule Coaxis.Accounts.Resources.Interest do
   code_interface do
     define_for Coaxis.Accounts
     define :create, action: :create
-    define :read_all, action: :read
+    define :read, action: :read
     define :update, action: :update
     define :destroy, action: :destroy
     define :get_by_id, args: [:id], action: :by_id
@@ -36,10 +36,11 @@ defmodule Coaxis.Accounts.Resources.Interest do
   end
 
   relationships do
-    many_to_many :users, User  do
+    many_to_many :users, User do
       through UserInterest
       source_attribute_on_join_resource :interest_id
       destination_attribute_on_join_resource :user_id
+      read_action :by_id
     end
   end
 

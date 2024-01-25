@@ -69,15 +69,20 @@ defmodule CoaxisWeb.OnboardingLive.EngagementInterest do
     # Store interests in the database
     selected_interests = Jason.decode!(selected_interests_json)
 
+    user_obj = User |> Query.filter(id == ^user_id) |> Query.select(:id) |> Accounts.read_one!()
+
     interest_objs =
       Interest
       |> Query.filter(name in ^Map.keys(selected_interests))
       |> Query.select(:id)
       |> Accounts.read!()
 
-    IO.inspect(interest_objs)
+    changeset =
+      user_obj
+      |> Ash.Changeset.for_update(:update, %{id: user_obj.id})
+      |> Ash.Changeset.manage_relationship(:interests, interest_objs, type: :append_and_remove)
 
-    # TODO: Save object
+    Coaxis.Accounts.update!(changeset)
 
     # Inform the parent process that the step has changed. Ideally, this should be modelled as a FSM
     # TODO: Add a "skip" event
