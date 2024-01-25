@@ -1,0 +1,39 @@
+<div class="text-[#000000] text-center font-['OpenSans-Bold',_sans-serif] text-3xl leading-[154.68%] font-bold absolute left-[calc(50%_-_124px)] top-[282px]">
+  I’m interested in
+</div>
+<div class="flex flex-row gap-3.5 items-center justify-center flex-wrap w-[601px] absolute left-[calc(50%_-_301px)] top-[424px]">
+  <%= for {interest, label} <- @interests do %>
+    <button
+      type="button"
+      phx-click="toggle_interest"
+      phx-value-interest={interest}
+      phx-value-user_id={@user_id}
+      class={button_classes(interest, @selected_interests)}
+    >
+      <div class={text_classes(interest, @selected_interests)}><%= label %></div>
+    </button>
+  <% end %>
+</div>
+<div class="absolute" style="inset: 0">
+  <div class="flex flex-row gap-0 items-start justify-start w-[150px] absolute left-[512px] top-[673px]">
+    <div class="bg-demo-foundation-white rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center flex-1 relative overflow-hidden">
+      <button
+        class="text-demo-foundation-black text-left font-h-5-500-font-family text-h-5-500-font-size leading-h-5-500-line-height font-h-5-500-font-weight relative flex items-center justify-start"
+        phx-click="submit_skip"
+      >
+        Skip for now
+      </button>
+    </div>
+  </div>
+  <button
+    type="button"
+    class="bg-demo-foundation-black rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center w-[150px] absolute left-[776px] top-[673px] overflow-hidden"
+    phx-click="submit_next"
+    phx-value-selected_interests_json={@selected_interests_json}
+    phx-value-user_id={@user_id}
+  >
+    <div class="text-demo-foundation-white text-left font-h-5-500-font-family text-h-5-500-font-size leading-h-5-500-line-height font-h-5-500-font-weight relative flex items-center justify-start">
+      Next
+    </div>
+  </button>
+</div>

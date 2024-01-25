@@ -1,4 +1,4 @@
-<div class="bg-[#ffffff] w-[1440px] h-[2451px] relative overflow-hidden">
+<div class="bg-[#ffffff] w-[1440px] h-[2451px] relative overflow-hidden" id="top_level">
   <.menu_header title="About">
     <:logo_block>
       <.logo />
@@ -16,25 +16,12 @@
       />
     </:button_block>
   </.menu_header>
-  <%= live_render(@socket, CoaxisWeb.OnboardingLive.WhatInterestsMe, id: "what_interests_me") %>
-  <div class="absolute" style="inset: 0">
-    <div class="flex flex-row gap-0 items-start justify-start w-[150px] absolute left-[512px] top-[673px]">
-      <div class="bg-demo-foundation-white rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center flex-1 relative overflow-hidden">
-        <button
-          class="text-demo-foundation-black text-left font-h-5-500-font-family text-h-5-500-font-size leading-h-5-500-line-height font-h-5-500-font-weight relative flex items-center justify-start"
-          phx-click="submit_skip"
-        >
-          Skip for now
-        </button>
-      </div>
-    </div>
-    <div class="bg-demo-foundation-black rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center w-[150px] absolute left-[776px] top-[673px] overflow-hidden">
-      <button
-        class="text-demo-foundation-white text-left font-h-5-500-font-family text-h-5-500-font-size leading-h-5-500-line-height font-h-5-500-font-weight relative flex items-center justify-start"
-        phx-click="submit_next"
-      >
-        Next
-      </button>
-    </div>
-  </div>
+  <%= case @current_step do %>
+    <% :engagement_interests -> %>
+      <%= live_render(@socket, EngagementInterest, id: "engagement_interests") %>
+    <% :project_interests -> %>
+      <%= @current_step %>
+    <% _ -> %>
+      <%= "" %>
+  <% end %>
 </div>

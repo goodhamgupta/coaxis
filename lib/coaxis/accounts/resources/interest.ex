@@ -30,6 +30,7 @@ defmodule Coaxis.Accounts.Resources.Interest do
     define :destroy, action: :destroy
     define :get_by_id, args: [:id], action: :by_id
     define :get_by_type, args: [:type], action: :by_type
+    define :get_by_name, args: [:name], action: :by_name
   end
 
   actions do
@@ -45,6 +46,12 @@ defmodule Coaxis.Accounts.Resources.Interest do
       argument :type, :string, allow_nil?: false
       get? true
       filter expr(type == ^arg(:type))
+    end
+
+    read :by_name do
+      argument :name, :string, allow_nil?: false
+      get? true
+      filter expr(name == ^arg(:name))
     end
   end
 end
