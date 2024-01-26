@@ -33,7 +33,7 @@ defmodule CoaxisWeb.OnboardingLive.EngagementInterest do
      )}
   end
 
-  def handle_event("toggle_interest", %{"user_id" => user_id, "interest" => interest}, socket) do
+  def handle_event("toggle_interest", %{"interest" => interest}, socket) do
     # Toggle the interest in the selected_interests map
     selected_interests =
       if Map.has_key?(socket.assigns.selected_interests, interest) do
@@ -41,12 +41,6 @@ defmodule CoaxisWeb.OnboardingLive.EngagementInterest do
       else
         Map.put(socket.assigns.selected_interests, interest, true)
       end
-
-    # require IEx
-    # IEx.pry()
-    # User
-    # |> Ash.Changeset.for_update(:update, %{id: user_id, interests: interest_objs})
-    # |> Accounts.update!()
 
     {:noreply,
      assign(socket,

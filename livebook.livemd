@@ -1,0 +1,229 @@
+# API Documentation
+
+## API Coaxis.Accounts
+
+### Class Diagram
+
+```mermaid
+classDiagram
+    class Interest {
+        UUID id
+        CiString name
+        String description
+        Atom type
+        User[] users
+        destroy()
+        update(UUID id, CiString name, String description, Atom type)
+        read()
+        create(UUID id, CiString name, String description, Atom type)
+        by_id(UUID id)
+        by_type(String type)
+        by_name(String name)
+    }
+    class Token {
+        Map extra_data
+        String purpose
+        UtcDatetime expires_at
+        String subject
+        String jti
+        get_token(String token, String jti, String purpose)
+        store_token(String token, Map extra_data, String purpose)
+        store_confirmation_changes(String token, Map extra_data, String purpose)
+        get_confirmation_changes(String jti)
+        revoked?(String token, String jti)
+        revoke_token(String token, Map extra_data)
+        read_expired()
+        expunge_expired()
+    }
+    class User {
+        UUID id
+        CiString email
+        CiString first_name
+        CiString last_name
+        String hashed_password
+        Interest[] interests
+        password_reset_with_password(String reset_token, String password, String password_confirmation)
+        request_password_reset_with_password(CiString email)
+        sign_in_with_token_for_password(String token)
+        sign_in_with_password(CiString email, String password)
+        register_with_password(String password, String password_confirmation, CiString email)
+        get_by_subject()
+        destroy()
+        update(UUID id, CiString email, CiString first_name, CiString last_name, ...)
+        read()
+        create(UUID id, CiString email, CiString first_name, CiString last_name, ...)
+        by_id(UUID id)
+    }
+    class UserInterest {
+        UUID id
+        UUID user_id
+        UUID interest_id
+        User user
+        Interest interest
+        destroy()
+        update(UUID id, UUID user_id, UUID interest_id)
+        read()
+        create(UUID id, UUID user_id, UUID interest_id)
+        by_id(UUID id)
+    }
+
+    Interest -- User
+    Interest -- UserInterest
+    User -- UserInterest
+```
+
+### ER Diagram
+
+```mermaid
+erDiagram
+    Interest {
+        UUID id
+        CiString name
+        String description
+        Atom type
+    }
+    Token {
+        Map extra_data
+        String purpose
+        UtcDatetime expires_at
+        String subject
+        String jti
+    }
+    User {
+        UUID id
+        CiString email
+        CiString first_name
+        CiString last_name
+        String hashed_password
+    }
+    UserInterest {
+        UUID id
+        UUID user_id
+        UUID interest_id
+    }
+
+    Interest ||--|| User : ""
+    Interest ||--|| UserInterest : ""
+    User ||--|| UserInterest : ""
+```
+
+### Resources
+
+- [Interest](#interest)
+- [Token](#token)
+- [User](#user)
+- [UserInterest](#userinterest)
+
+### Interest
+
+
+
+#### Attributes
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **id** | UUID |  |
+| **name** | CiString |  |
+| **description** | String |  |
+| **type** | Atom |  |
+| **created_at** | UtcDatetimeUsec |  |
+| **updated_at** | UtcDatetimeUsec |  |
+
+#### Actions
+
+| Name | Type | Input | Description |
+| ---- | ---- | ----- | ----------- |
+| **destroy** | _destroy_ | <ul></ul> |  |
+| **update** | _update_ | <ul><li><b>id</b> <i>UUID</i> attribute</li><li><b>name</b> <i>CiString</i> attribute</li><li><b>description</b> <i>String</i> attribute</li><li><b>type</b> <i>Atom</i> attribute</li></ul> |  |
+| **read** | _read_ | <ul></ul> |  |
+| **create** | _create_ | <ul><li><b>id</b> <i>UUID</i> attribute</li><li><b>name</b> <i>CiString</i> attribute</li><li><b>description</b> <i>String</i> attribute</li><li><b>type</b> <i>Atom</i> attribute</li></ul> |  |
+| **by_id** | _read_ | <ul><li><b>id</b> <i>UUID</i> </li></ul> |  |
+| **by_type** | _read_ | <ul><li><b>type</b> <i>String</i> </li></ul> |  |
+| **by_name** | _read_ | <ul><li><b>name</b> <i>String</i> </li></ul> |  |
+
+### Token
+
+
+
+#### Attributes
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **updated_at** | UtcDatetimeUsec |  |
+| **created_at** | UtcDatetimeUsec |  |
+| **extra_data** | Map |  |
+| **purpose** | String |  |
+| **expires_at** | UtcDatetime |  |
+| **subject** | String |  |
+| **jti** | String |  |
+
+#### Actions
+
+| Name | Type | Input | Description |
+| ---- | ---- | ----- | ----------- |
+| **get_token** | _read_ | <ul><li><b>token</b> <i>String</i> </li><li><b>jti</b> <i>String</i> </li><li><b>purpose</b> <i>String</i> </li></ul> |  |
+| **store_token** | _create_ | <ul><li><b>token</b> <i>String</i> </li><li><b>extra_data</b> <i>Map</i> attribute</li><li><b>purpose</b> <i>String</i> attribute</li></ul> |  |
+| **store_confirmation_changes** | _create_ | <ul><li><b>token</b> <i>String</i> </li><li><b>extra_data</b> <i>Map</i> attribute</li><li><b>purpose</b> <i>String</i> attribute</li></ul> |  |
+| **get_confirmation_changes** | _read_ | <ul><li><b>jti</b> <i>String</i> </li></ul> |  |
+| **revoked?** | _read_ | <ul><li><b>token</b> <i>String</i> </li><li><b>jti</b> <i>String</i> </li></ul> |  |
+| **revoke_token** | _create_ | <ul><li><b>token</b> <i>String</i> </li><li><b>extra_data</b> <i>Map</i> attribute</li></ul> |  |
+| **read_expired** | _read_ | <ul></ul> |  |
+| **expunge_expired** | _destroy_ | <ul></ul> |  |
+
+### User
+
+
+
+#### Attributes
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **id** | UUID |  |
+| **email** | CiString |  |
+| **first_name** | CiString |  |
+| **last_name** | CiString |  |
+| **hashed_password** | String |  |
+| **created_at** | UtcDatetimeUsec |  |
+| **updated_at** | UtcDatetimeUsec |  |
+
+#### Actions
+
+| Name | Type | Input | Description |
+| ---- | ---- | ----- | ----------- |
+| **password_reset_with_password** | _update_ | <ul><li><b>reset_token</b> <i>String</i> </li><li><b>password</b> <i>String</i> </li><li><b>password_confirmation</b> <i>String</i> </li></ul> |  |
+| **request_password_reset_with_password** | _read_ | <ul><li><b>email</b> <i>CiString</i> The proposed identity to send reset instructions to.</li></ul> | Send password reset instructions to a user if they exist. |
+| **sign_in_with_token_for_password** | _read_ | <ul><li><b>token</b> <i>String</i> The short-lived sign in JWT.</li></ul> | Attempt to sign in using a short-lived sign in token. |
+| **sign_in_with_password** | _read_ | <ul><li><b>email</b> <i>CiString</i> The identity to use for retrieving the user.</li><li><b>password</b> <i>String</i> The password to check for the matching user.</li></ul> | Attempt to sign in using a username and password. |
+| **register_with_password** | _create_ | <ul><li><b>password</b> <i>String</i> The proposed password for the user, in plain text.</li><li><b>password_confirmation</b> <i>String</i> The proposed password for the user (again), in plain text.</li><li><b>email</b> <i>CiString</i> attribute</li></ul> | Register a new user with a username and password. |
+| **get_by_subject** | _read_ | <ul></ul> |  |
+| **destroy** | _destroy_ | <ul></ul> |  |
+| **update** | _update_ | <ul><li><b>id</b> <i>UUID</i> attribute</li><li><b>email</b> <i>CiString</i> attribute</li><li><b>first_name</b> <i>CiString</i> attribute</li><li><b>last_name</b> <i>CiString</i> attribute</li><li><b>hashed_password</b> <i>String</i> attribute</li></ul> |  |
+| **read** | _read_ | <ul></ul> |  |
+| **create** | _create_ | <ul><li><b>id</b> <i>UUID</i> attribute</li><li><b>email</b> <i>CiString</i> attribute</li><li><b>first_name</b> <i>CiString</i> attribute</li><li><b>last_name</b> <i>CiString</i> attribute</li><li><b>hashed_password</b> <i>String</i> attribute</li></ul> |  |
+| **by_id** | _read_ | <ul><li><b>id</b> <i>UUID</i> </li></ul> |  |
+
+### UserInterest
+
+
+
+#### Attributes
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **id** | UUID |  |
+| **user_id** | UUID |  |
+| **interest_id** | UUID |  |
+| **created_at** | UtcDatetimeUsec |  |
+| **updated_at** | UtcDatetimeUsec |  |
+
+#### Actions
+
+| Name | Type | Input | Description |
+| ---- | ---- | ----- | ----------- |
+| **destroy** | _destroy_ | <ul></ul> |  |
+| **update** | _update_ | <ul><li><b>id</b> <i>UUID</i> attribute</li><li><b>user_id</b> <i>UUID</i> attribute</li><li><b>interest_id</b> <i>UUID</i> attribute</li></ul> |  |
+| **read** | _read_ | <ul></ul> |  |
+| **create** | _create_ | <ul><li><b>id</b> <i>UUID</i> attribute</li><li><b>user_id</b> <i>UUID</i> attribute</li><li><b>interest_id</b> <i>UUID</i> attribute</li></ul> |  |
+| **by_id** | _read_ | <ul><li><b>id</b> <i>UUID</i> </li></ul> |  |
+
+
