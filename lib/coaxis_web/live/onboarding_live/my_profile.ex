@@ -1,4 +1,4 @@
-defmodule CoaxisWeb.OnboardingLive.EngagementInterest do
+defmodule CoaxisWeb.OnboardingLive.MyProfile do
   require Ash.Query
   use CoaxisWeb, :live_view
 
@@ -19,11 +19,12 @@ defmodule CoaxisWeb.OnboardingLive.EngagementInterest do
     {:ok,
      assign(socket,
        interests: [
-         {"fundraising", "Fundraising"},
-         {"supporting_impact_ventures", "Supporting impact ventures"},
-         {"support_non_profit_organizations", "Supporting Non-Profit Organizations"},
-         {"networking", "Networking"},
-         {"other", "Just Browsing"}
+         {"profile_fundraising", "project_Fundraising"},
+         {"profile_supporting_impact_ventures", "project_Supporting impact ventures"},
+         {"profile_support_non_profit_organizations",
+          "profile_Supporting Non-Profit Organizations"},
+         {"profile_networking", "project_Networking"},
+         {"profile_other", "project_Just Browsing"}
        ],
        selected_interests: %{},
        selected_interests_json: Jason.encode!(%{}),
@@ -73,17 +74,14 @@ defmodule CoaxisWeb.OnboardingLive.EngagementInterest do
 
     changeset =
       user_obj
-      |> Ash.Changeset.for_update(:update, %{})
+      |> Ash.Changeset.for_update(:update, %{id: user_obj.id})
       |> Ash.Changeset.manage_relationship(:interests, interest_objs, type: :append_and_remove)
 
-    require IEx
-    IEx.pry()
-
-    Accounts.update!(changeset)
+    Coaxis.Accounts.update!(changeset)
 
     # Inform the parent process that the step has changed. Ideally, this should be modelled as a FSM
     # TODO: Add a "skip" event
-    send(socket.parent_pid, %{event: :engagement_submit_next})
+    send(socket.parent_pid, %{event: :project_submit_next})
 
     {:noreply, socket}
   end

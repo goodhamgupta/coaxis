@@ -4,6 +4,8 @@ defmodule CoaxisWeb.MarketplaceLive.Signup do
   alias AshAuthentication.{Info, Strategy}
   alias Coaxis.Accounts.Resources.User
 
+  import Phoenix.Naming, only: [humanize: 1]
+
   @spec mount(any(), any(), any()) :: {:ok, any()}
   def mount(_params, _session, socket) do
     socket = assign(socket, %{is_dimmed: true, form: to_form(%{})})
@@ -45,16 +47,19 @@ defmodule CoaxisWeb.MarketplaceLive.Signup do
     case Strategy.action(strategy, :register, cur_params) do
       {:ok, user} ->
         # TODO: Publish user_id
+        AshAuthentication.Plug.Helpers.store_in_session(socket, user)
         {:noreply, push_navigate(socket, to: "/personalization/#{user.id}")}
 
       {:error, changeset} ->
-        IO.puts("***************************")
-        IO.inspect(changeset)
-        IO.puts("***************************")
-        {:noreply, assign(socket, form: to_form(changeset))}
+        {:noreply,
+         put_flash(
+           socket,
+           :error,
+           changeset.errors
+           |> Enum.map(fn x -> "#{humanize(x.field)} #{x.message}" end)
+           |> Enum.join(", ")
+         )}
     end
-
-    {:noreply, assign(socket, form: form)}
   end
 
   def handle_event("log_in", _params, socket) do

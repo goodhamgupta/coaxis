@@ -19,7 +19,7 @@ defmodule CoaxisWeb.OauthButtonComponent do
     <div class={main_class}>
       <div class="shrink-0 w-[30px] h-[30px] relative overflow-hidden">
         <img
-          class="w-9 h-[39px] absolute left-[-3px] top-[-4px]"
+          class="w-9 h-[39px] relative left-[-3px] top-[-4px]"
           style="object-fit: cover"
           src={@image_src}
         />

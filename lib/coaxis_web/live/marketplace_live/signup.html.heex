@@ -19,6 +19,11 @@
       placeholder="Retype-Password"
       class="bg-mono-light-grey rounded-md border-solid border-mono-grey border pt-3 pr-5 pb-3 pl-5 flex flex-row gap-2.5 items-start justify-start w-[300px] h-[50px] absolute left-[97px] top-[314px] overflow-hidden"
     />
+    <%= for {attr, message} <- @flash do %>
+      <div class="alert alert-danger">
+        <%= humanize(attr) %> <%= message %>
+      </div>
+    <% end %>
   </form>
   <div class="text-[#000000] text-center font-['-',_sans-serif] text-sm leading-[154.68%] font-normal absolute left-[calc(50%_-_304px)] top-[393px]">
     <span>
@@ -87,10 +92,10 @@
     text="Sign up with X(Twitter)"
     click_event="oauth_x_signup"
     image_src={~p'/images/x_logo.png'}
-    order="2"
+    order="3"
     .
-  />
-  <.live_component
+  /> --%>
+  <%!-- <.live_component
     module={CoaxisWeb.OauthButtonComponent}
     id="oauth-instagram-btn"
     text="Sign up with Instagram"

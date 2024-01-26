@@ -20,4 +20,10 @@ defmodule CoaxisWeb.OnboardingLive.Personalization do
     socket = assign(socket, current_step: :project_interests)
     {:noreply, socket}
   end
+
+  def handle_info(%{event: event}, socket)
+      when event in [:project_submit_next, :project_submit_skip] do
+    socket = assign(socket, current_step: :my_profile)
+    {:noreply, socket}
+  end
 end

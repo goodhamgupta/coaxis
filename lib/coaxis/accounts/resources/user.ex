@@ -22,7 +22,7 @@ defmodule Coaxis.Accounts.Resources.User do
     strategies do
       password :password do
         identity_field :email
-        sign_in_tokens_enabled? true
+        sign_in_tokens_enabled? false
 
         resettable do
           sender Coaxis.Accounts.User.Senders.SendPasswordResetEmail

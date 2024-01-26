@@ -20,7 +20,9 @@
     <% :engagement_interests -> %>
       <%= live_render(@socket, EngagementInterest, id: "engagement_interests") %>
     <% :project_interests -> %>
-      <%= @current_step %>
+      <%= live_render(@socket, ProjectInterest, id: "project_interests") %>
+    <% :my_profile -> %>
+      <%= live_render(@socket, MyProfile, id: "my_profile") %>
     <% _ -> %>
       <%= "" %>
   <% end %>
