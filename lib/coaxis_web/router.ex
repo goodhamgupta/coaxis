@@ -24,7 +24,7 @@ defmodule CoaxisWeb.Router do
 
     ash_authentication_live_session :authentication_required,
       on_mount: {CoaxisWeb.LiveUserAuth, :live_user_required} do
-      live "/personalization/:id", OnboardingLive.Personalization, :personalization
+      live "/personalization", OnboardingLive.Personalization, :personalization
     end
 
     ash_authentication_live_session :authentication_optional,

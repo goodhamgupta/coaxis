@@ -8,6 +8,8 @@ defmodule CoaxisWeb.MarketplaceLive.Signup do
 
   @spec mount(any(), any(), any()) :: {:ok, any()}
   def mount(_params, _session, socket) do
+    require IEx
+    IEx.pry()
     socket = assign(socket, %{is_dimmed: true, form: to_form(%{})})
     {:ok, socket}
   end
@@ -45,10 +47,9 @@ defmodule CoaxisWeb.MarketplaceLive.Signup do
     strategy = Info.strategy!(User, :password)
 
     case Strategy.action(strategy, :register, cur_params) do
-      {:ok, user} ->
+      {:ok, _user} ->
         # TODO: Publish user_id
-        AshAuthentication.Plug.Helpers.store_in_session(socket, user)
-        {:noreply, push_navigate(socket, to: "/personalization/#{user.id}")}
+        {:noreply, push_navigate(socket, to: "/personalization")}
 
       {:error, changeset} ->
         {:noreply,
@@ -62,7 +63,7 @@ defmodule CoaxisWeb.MarketplaceLive.Signup do
     end
   end
 
-  def handle_event("log_in", _params, socket) do
+  def handle_event("login", _params, socket) do
     {:noreply, redirect(socket, to: "/sign-in")}
   end
 end

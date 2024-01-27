@@ -25,6 +25,7 @@
   <button
     type="button"
     phx-click="submit"
+    phx-value-user_id={@user_id}
     class="bg-demo-foundation-black rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center w-[150px] absolute left-[777px] top-[693px] overflow-hidden"
   >
     <div class="text-demo-foundation-white text-left font-h-5-500-font-family text-h-5-500-font-size leading-h-5-500-line-height font-h-5-500-font-weight relative flex items-center justify-start">
@@ -43,10 +44,14 @@
 <form phx-change="validate" , phx-submit="submit">
   <input
     class="bg-mono-light-grey rounded-md border-solid border-mono-grey border pt-3 pr-5 pb-3 pl-5 flex flex-row gap-2.5 items-start justify-start w-[300px] h-[50px] absolute left-[366px] top-[443px] overflow-hidden"
+    type="text"
+    name="full_name"
     placeholder="Your Name"
   />
   <input
     class="bg-mono-light-grey rounded-md border-solid border-mono-grey border pt-3 pr-5 pb-3 pl-5 flex flex-row gap-2.5 items-start justify-start w-[300px] h-[50px] absolute left-[366px] top-[515px] overflow-hidden"
+    type="text"
+    name="current_position"
     placeholder="Current Position"
   />
 </form>

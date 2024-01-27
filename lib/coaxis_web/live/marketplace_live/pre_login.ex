@@ -13,11 +13,9 @@ defmodule CoaxisWeb.MarketplaceLive.PreLogin do
   end
 
   def handle_event("signup", _, socket) do
-    IO.puts("***************************")
     new_state = not socket.assigns[:join_btn_click]
-    IO.puts(socket.assigns[:join_btn_click])
-    IO.puts(new_state)
-    IO.puts("***************************")
-    {:noreply, assign(socket, join_btn_click: new_state)}
+
+    {:noreply,
+     assign(socket, join_btn_click: new_state, current_user: socket.assigns.current_user)}
   end
 end

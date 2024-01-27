@@ -16,87 +16,46 @@ defmodule CoaxisWeb.OnboardingLive.MyProfile do
   """
   def mount(_params, session, socket) do
     # Assign empty list
-    {:ok,
-     assign(socket,
-       interests: [
-         {"profile_fundraising", "profile_Fundraising"},
-         {"profile_supporting_impact_ventures", "profile_Supporting impact ventures"},
-         {"profile_support_non_profit_organizations",
-          "profile_Supporting Non-Profit Organizations"},
-         {"profile_networking", "profile_Networking"},
-         {"profile_other", "profile_Just Browsing"}
-       ],
-       selected_interests: %{},
-       selected_interests_json: Jason.encode!(%{}),
-       # TODO: Ash seems to set the user id to the format: user?id=uuid_string. We need to extract the uuid_string from this string.
-       # Need to find a "ash" way to do this.
-       user_id: session["user"] |> String.split("=") |> List.last()
-     )}
+    user_id = session["user"] |> String.split("=") |> List.last()
+    {:ok, assign(socket, form: to_form(%{}), user_id: user_id)}
   end
 
-  def handle_event("toggle_interest", %{"interest" => interest}, socket) do
-    # Toggle the interest in the selected_interests map
-    selected_interests =
-      if Map.has_key?(socket.assigns.selected_interests, interest) do
-        Map.pop(socket.assigns.selected_interests, interest, nil)
-      else
-        Map.put(socket.assigns.selected_interests, interest, true)
-      end
-
-    {:noreply,
-     assign(socket,
-       selected_interests: selected_interests,
-       # LiveView only allows string HTML attributes
-       selected_interests_json: Jason.encode!(selected_interests)
-     )}
-  end
-
-  @doc """
-  Handles the "submit_next" and "submit_skip" events.
-  """
   def handle_event(
-        event,
-        %{"user_id" => user_id, "selected_interests_json" => selected_interests_json},
+        "validate",
+        %{
+          "full_name" => full_name,
+          "current_position" => current_position
+        },
         socket
-      )
-      when event in ["submit_next", "submit_skip"] do
-    # TODO: Recreating the user object in the "ash" form.
-    # Store interests in the database
-    selected_interests = Jason.decode!(selected_interests_json)
+      ) do
+    form = socket.assigns[:form]
 
-    user_obj = User |> Query.filter(id == ^user_id) |> Query.select(:id) |> Accounts.read_one!()
+    cur_params = %{
+      full_name: full_name,
+      current_position: current_position
+    }
 
-    interest_objs =
-      Interest
-      |> Query.filter(name in ^Map.keys(selected_interests))
-      |> Query.select(:id)
-      |> Accounts.read!()
+    form = Map.merge(form, cur_params)
+    {:noreply, assign(socket, form: form)}
+  end
+
+  def handle_event("submit", %{"user_id" => user_id}, socket) do
+    # Toggle the interest in the selected_interests map
+    form = socket.assigns[:form]
+
+    cur_params = %{
+      full_name: form.full_name,
+      current_position: form.current_position
+    }
+
+    user_obj =
+      User |> Query.filter(id == ^user_id) |> Query.select(:id) |> Accounts.read_one!()
 
     changeset =
       user_obj
-      |> Ash.Changeset.for_update(:update, %{id: user_obj.id})
-      |> Ash.Changeset.manage_relationship(:interests, interest_objs, type: :append_and_remove)
+      |> Ash.Changeset.for_update(:update, cur_params)
+      |> Accounts.update!()
 
-    Coaxis.Accounts.update!(changeset)
-
-    # Inform the parent process that the step has changed. Ideally, this should be modelled as a FSM
-    # TODO: Add a "skip" event
-    send(socket.parent_pid, %{event: :project_submit_next})
-
-    {:noreply, socket}
-  end
-
-  defp button_classes(interest, selected_interests) do
-    selected = Map.get(selected_interests, interest, false)
-    bg_color_class = elem(@button_color_mapping[selected], 0)
-
-    "rounded-[10px] pt-1 pr-2.5 pb-1 pl-2.5 flex flex-row gap-1 items-center justify-center shrink-0 h-[39px] relative overflow-hidden bg-#{bg_color_class} z-[99]"
-  end
-
-  defp text_classes(interest, selected_interests) do
-    selected = Map.get(selected_interests, interest, false)
-    text_color_class = elem(@button_color_mapping[selected], 1)
-
-    "text-center font-['OpenSans-Bold',_sans-serif] text-lg font-bold relative text-#{text_color_class}"
+    {:noreply, redirect(socket, to: "/home")}
   end
 end
