@@ -1,14 +1,14 @@
-<%= if @join_btn_click and !@user_logged_in do %>
+<%!-- <%= if @new_user do %>
   <div
     class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75"
     style="padding-top: 427px; padding-right: 284px; padding-bottom: 1703px; padding-left: 283px;"
   >
-    <%= live_render(@socket, CoaxisWeb.MarketplaceLive.Signup,
-      id: "signup-component",
+    <%= live_render(@socket, CoaxisWeb.HomeLive.Home,
+      id: "fund-raise-component",
       assigns: assigns
     ) %>
   </div>
-<% end %>
+<% end %> --%>
 
 <div class="bg-[#ffffff] w-[1440px] h-[2451px] relative overflow-hidden">
   <.menu_header title="About">

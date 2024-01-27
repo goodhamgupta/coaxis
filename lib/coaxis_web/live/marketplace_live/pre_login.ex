@@ -7,8 +7,15 @@ defmodule CoaxisWeb.MarketplaceLive.PreLogin do
     LogoComponent
   }
 
-  def mount(_params, _session, socket) do
-    socket = assign(socket, %{join_btn_click: false})
+  def mount(_params, session, socket) do
+    user_logged_in =
+      if session["user"] == nil do
+        false
+      else
+        true
+      end
+
+    socket = assign(socket, %{join_btn_click: false, user_logged_in: user_logged_in})
     {:ok, socket}
   end
 

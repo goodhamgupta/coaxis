@@ -1,4 +1,4 @@
-defmodule CoaxisWeb.MarketplaceLive.Signup do
+defmodule CoaxisWeb.HomeLive.CreateFundRaisePage do
   use CoaxisWeb, :live_view
 
   alias AshAuthentication.{Info, Strategy}
@@ -7,17 +7,8 @@ defmodule CoaxisWeb.MarketplaceLive.Signup do
   import Phoenix.Naming, only: [humanize: 1]
 
   @spec mount(any(), any(), any()) :: {:ok, any()}
-  def mount(_params, session, socket) do
-    user_logged_in =
-      if session["user"] == nil do
-        false
-      else
-        true
-      end
-
-    socket =
-      assign(socket, %{is_dimmed: true, user_logged_in: user_logged_in, form: to_form(%{})})
-
+  def mount(_params, _session, socket) do
+    socket = assign(socket, %{is_dimmed: true, form: to_form(%{})})
     {:ok, socket}
   end
 
