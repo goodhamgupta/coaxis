@@ -1,42 +1,87 @@
-<div class="text-[#000000] text-center font-['OpenSans-Bold',_sans-serif] text-3xl leading-[154.68%] font-bold absolute left-[calc(50%_-_124px)] top-[282px]">
-  What matters to me is...
+<div class="text-[#000000] text-center font-['OpenSans-Bold',_sans-serif] text-3xl leading-[154.68%] font-bold absolute left-[calc(43%_-_144px)] top-[182px]">
+  Add Photo to help people recognize you!
 </div>
-<div class="text-[#000000] text-center font-['OpenSans-Regular',_sans-serif] text-sm leading-[154.68%] font-normal absolute left-[calc(50%_-_233px)] top-[339px]">
-  Select as many as you want to get Personalized Recommendations
+<div class="text-[#000000] text-center font-['OpenSans-Regular',_sans-serif] text-sm leading-[154.68%] font-normal absolute left-[calc(50%_-_-103px)] top-[375px]">
+  Want to stay annonymous?
 </div>
-<div class="flex flex-row gap-3.5 items-center justify-center flex-wrap w-[601px] absolute left-[calc(50%_-_301px)] top-[424px]">
-  <%= for {interest, label} <- @interests do %>
-    <button
-      type="button"
-      phx-click="toggle_interest"
-      phx-value-interest={interest}
-      phx-value-user_id={@user_id}
-      class={button_classes(interest, @selected_interests)}
-    >
-      <div class={text_classes(interest, @selected_interests)}><%= label %></div>
-    </button>
-  <% end %>
+<div class="text-[#000000] text-left font-['OpenSans-Regular',_sans-serif] text-sm leading-[154.68%] font-normal absolute left-[calc(50%_-_-103px)] top-[471px]">
+  Other Users wont be able to see you. <br /> You can always change this in your profile
+</div>
+<div class="text-[#000000] text-center font-['OpenSans-Regular',_sans-serif] text-sm leading-[154.68%] font-normal absolute left-[calc(50%_-_353px)] top-[585px]">
+  Your name and photo will be visible to others! <br /> You can always change this in your profile
 </div>
 <div class="absolute" style="inset: 0">
-  <div class="flex flex-row gap-0 items-start justify-start w-[150px] absolute left-[512px] top-[673px]">
-    <div class="bg-demo-foundation-white rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center flex-1 relative overflow-hidden">
-      <button
-        class="text-demo-foundation-black text-left font-h-5-500-font-family text-h-5-500-font-size leading-h-5-500-line-height font-h-5-500-font-weight relative flex items-center justify-start"
-        phx-click="submit_skip"
-      >
+  <div class="flex flex-row gap-0 items-start justify-start w-[150px] absolute left-[512px] top-[693px]">
+    <button
+      type="button"
+      phx-click="skip"
+      class="bg-demo-foundation-white rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center flex-1 relative overflow-hidden"
+    >
+      <div class="text-demo-foundation-black text-left font-h-5-500-font-family text-h-5-500-font-size leading-h-5-500-line-height font-h-5-500-font-weight relative flex items-center justify-start">
         Skip for now
-      </button>
-    </div>
+      </div>
+    </button>
   </div>
   <button
     type="button"
-    class="bg-demo-foundation-black rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center w-[150px] absolute left-[776px] top-[673px] overflow-hidden"
-    phx-click="submit_next"
-    phx-value-selected_interests_json={@selected_interests_json}
-    phx-value-user_id={@user_id}
+    phx-click="submit"
+    class="bg-demo-foundation-black rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center w-[150px] absolute left-[777px] top-[693px] overflow-hidden"
   >
     <div class="text-demo-foundation-white text-left font-h-5-500-font-family text-h-5-500-font-size leading-h-5-500-line-height font-h-5-500-font-weight relative flex items-center justify-start">
-      Next
+      Finish!
     </div>
   </button>
+</div>
+<img
+  class="rounded-[50px] w-[100px] h-[100px] absolute left-[463px] top-[312px] overflow-hidden"
+  style="
+      background: linear-gradient(to left, #f6f6f6, #f6f6f6);
+      object-fit: cover;
+    "
+  src={~p"/images/profile_background.png"}
+/>
+<form phx-change="validate" , phx-submit="submit">
+  <input
+    class="bg-mono-light-grey rounded-md border-solid border-mono-grey border pt-3 pr-5 pb-3 pl-5 flex flex-row gap-2.5 items-start justify-start w-[300px] h-[50px] absolute left-[366px] top-[443px] overflow-hidden"
+    placeholder="Your Name"
+  />
+  <input
+    class="bg-mono-light-grey rounded-md border-solid border-mono-grey border pt-3 pr-5 pb-3 pl-5 flex flex-row gap-2.5 items-start justify-start w-[300px] h-[50px] absolute left-[366px] top-[515px] overflow-hidden"
+    placeholder="Current Position"
+  />
+</form>
+<div class="bg-[#d9d9d9] rounded-md w-0.5 h-[348px] absolute left-[calc(50%_-_1px)] top-[281px]">
+</div>
+<svg
+  class="w-6 h-6 absolute left-[calc(49.8%_-_218px)] top-[calc(20.8%_-_162px)] overflow-visible"
+  style=""
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M21.5 6.5H18.33L16.5 4.5H10.5V6.5H15.62L17.45 8.5H21.5V20.5H5.5V11.5H3.5V20.5C3.5 21.6 4.4 22.5 5.5 22.5H21.5C22.6 22.5 23.5 21.6 23.5 20.5V8.5C23.5 7.4 22.6 6.5 21.5 6.5ZM8.5 14.5C8.5 17.26 10.74 19.5 13.5 19.5C16.26 19.5 18.5 17.26 18.5 14.5C18.5 11.74 16.26 9.5 13.5 9.5C10.74 9.5 8.5 11.74 8.5 14.5ZM13.5 11.5C15.15 11.5 16.5 12.85 16.5 14.5C16.5 16.15 15.15 17.5 13.5 17.5C11.85 17.5 10.5 16.15 10.5 14.5C10.5 12.85 11.85 11.5 13.5 11.5ZM5.5 6.5H8.5V4.5H5.5V1.5H3.5V4.5H0.5V6.5H3.5V9.5H5.5V6.5Z"
+    fill="#1C1C1E"
+  />
+</svg>
+<div class="flex flex-row gap-12 items-center justify-start absolute left-[823px] top-[429px]">
+  <div class="text-[#000000] text-center font-['OpenSans-Bold',_sans-serif] text-lg leading-[154.68%] font-bold relative">
+    Invisible Mode OFF
+  </div>
+  <span
+    role="checkbox"
+    class="bg-demo-mono-mono-400 rounded-2xl pt-0.5 pr-[3px] pb-0.5 pl-[3px] shrink-0 w-[60px] h-6 relative"
+  >
+    <input
+      type="checkbox"
+      class="bg-character-primary-inverse rounded-2xl w-[19px] h-[19px] absolute left-[3px] top-[2.5px]"
+    />
+    <label class="w-4 h-3 absolute left-[35px] top-1.5 switch">
+      <div class="text-demo-foundation-white text-center font-c-1-500-font-family text-c-1-500-font-size leading-c-1-500-line-height font-c-1-500-font-weight absolute right-[-12.5%] left-[-6.25%] w-[118.75%] bottom-[-16.67%] top-[-16.67%] h-[133.33%] flex items-center justify-center">
+        OFF
+      </div>
+    </label>
+  </span>
 </div>

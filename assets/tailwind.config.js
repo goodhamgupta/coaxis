@@ -38,6 +38,7 @@ module.exports = {
         'real-estate': 'var(--Real-Estate, #3D4754)',
         'waste': 'var(--Waste, #B6A58A)',
         'water': 'var(--Water, #00588B)',
+        'demo-mono-mono-400': 'var(--Demo-MONO-mono-400, #AEAEB2)',
       }
     },
   },

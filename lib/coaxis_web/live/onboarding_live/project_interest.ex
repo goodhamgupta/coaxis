@@ -2,7 +2,7 @@ defmodule CoaxisWeb.OnboardingLive.ProjectInterest do
   require Ash.Query
   use CoaxisWeb, :live_view
 
-  alias Coaxis.Accounts.Resources.{Interest, User}
+  alias Coaxis.Accounts.Resources.{Interest, User, UserInterest}
   alias Coaxis.Accounts
   alias Ash.Query
 
@@ -82,12 +82,10 @@ defmodule CoaxisWeb.OnboardingLive.ProjectInterest do
       |> Query.select(:id)
       |> Accounts.read!()
 
-    changeset =
-      user_obj
-      |> Ash.Changeset.for_update(:update, %{id: user_obj.id})
-      |> Ash.Changeset.manage_relationship(:interests, interest_objs, type: :append_and_remove)
-
-    Coaxis.Accounts.update!(changeset)
+    interest_objs
+    |> Enum.map(fn interest_obj ->
+      UserInterest.create!(%{user_id: user_obj.id, interest_id: interest_obj.id})
+    end)
 
     # Inform the parent process that the step has changed. Ideally, this should be modelled as a FSM
     # TODO: Add a "skip" event

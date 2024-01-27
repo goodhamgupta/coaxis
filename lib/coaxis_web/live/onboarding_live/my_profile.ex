@@ -19,12 +19,12 @@ defmodule CoaxisWeb.OnboardingLive.MyProfile do
     {:ok,
      assign(socket,
        interests: [
-         {"profile_fundraising", "project_Fundraising"},
-         {"profile_supporting_impact_ventures", "project_Supporting impact ventures"},
+         {"profile_fundraising", "profile_Fundraising"},
+         {"profile_supporting_impact_ventures", "profile_Supporting impact ventures"},
          {"profile_support_non_profit_organizations",
           "profile_Supporting Non-Profit Organizations"},
-         {"profile_networking", "project_Networking"},
-         {"profile_other", "project_Just Browsing"}
+         {"profile_networking", "profile_Networking"},
+         {"profile_other", "profile_Just Browsing"}
        ],
        selected_interests: %{},
        selected_interests_json: Jason.encode!(%{}),
