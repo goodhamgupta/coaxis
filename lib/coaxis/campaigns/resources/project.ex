@@ -33,6 +33,19 @@ defmodule Coaxis.Campaigns.Resources.Project do
     attribute :focus_geography, :string, allow_nil?: false
     attribute :related_partner, :string, allow_nil?: false
 
+    attribute :intent_tupe, :atom do
+      allow_nil? true
+      default :venture
+
+      constraints one_of: [
+                    :venture,
+                    :social_enterprise,
+                    :non_profit_organisation,
+                    :non_profit_project,
+                    :corporate_project
+                  ]
+    end
+
     attribute :executive_summary, :string, allow_nil?: true
 
     create_timestamp :created_at

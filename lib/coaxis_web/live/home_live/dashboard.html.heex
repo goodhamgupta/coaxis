@@ -1,14 +1,14 @@
-<%!-- <%= if @new_user do %>
+<%= if @new_user do %>
   <div
     class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75"
     style="padding-top: 427px; padding-right: 284px; padding-bottom: 1703px; padding-left: 283px;"
   >
-    <%= live_render(@socket, CoaxisWeb.HomeLive.Home,
+    <%= live_render(@socket, CoaxisWeb.HomeLive.CreateFundRaisePage,
       id: "fund-raise-component",
       assigns: assigns
     ) %>
   </div>
-<% end %> --%>
+<% end %>
 
 <div class="bg-[#ffffff] w-[1440px] h-[2451px] relative overflow-hidden">
   <.menu_header title="About">
@@ -2782,7 +2782,13 @@
       </div>
     </div>
     <div class="bg-mono-black rounded-md pt-1.5 pr-[29px] pb-1.5 pl-[29px] flex flex-row gap-2.5 items-center justify-center w-[184px] h-[50px] absolute left-[58px] top-[215px]">
-      <.live_component module={CoaxisWeb.ButtonComponent} id="welcome-btn" text="Welcome" . />
+      <.live_component
+        module={CoaxisWeb.ButtonComponent}
+        id="welcome-btn"
+        click_event="test"
+        text="Welcome"
+        .
+      />
     </div>
   </div>
   <div class="bg-[#e1d8cd] rounded-md w-[1440px] h-[596px] absolute left-0 top-[1014px] overflow-hidden">
