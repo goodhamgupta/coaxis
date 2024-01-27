@@ -58,7 +58,7 @@ defmodule Coaxis.Accounts.Resources.User do
 
   code_interface do
     define_for Coaxis.Accounts
-    define :create, action: :create
+    define :create
     define :read, action: :read
     define :update, action: :update
     define :destroy, action: :destroy
@@ -67,7 +67,7 @@ defmodule Coaxis.Accounts.Resources.User do
 
   actions do
     # Exposes default built in actions to manage the resource
-    defaults [:create, :read, :update, :destroy]
+    defaults [:create, :update, :read, :destroy]
 
     # Defines custom read action which fetches post by id.
     read :by_id do

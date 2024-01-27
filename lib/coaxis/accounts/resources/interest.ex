@@ -45,7 +45,14 @@ defmodule Coaxis.Accounts.Resources.Interest do
   end
 
   actions do
-    defaults [:create, :read, :update, :destroy]
+    defaults [:read, :update, :destroy]
+
+    create :create do
+      primary? true
+      argument :users, {:array, :map}
+
+      change manage_relationship(:users, type: :append_and_remove, on_no_match: :create)
+    end
 
     read :by_id do
       argument :id, :uuid, allow_nil?: false

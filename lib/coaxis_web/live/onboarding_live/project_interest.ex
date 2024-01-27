@@ -21,7 +21,8 @@ defmodule CoaxisWeb.OnboardingLive.ProjectInterest do
        interests: [
          {"project_fundraising", "project_Fundraising"},
          {"project_supporting_impact_ventures", "project_Supporting impact ventures"},
-         {"project_support_non_profit_organizations", "project_Supporting Non-Profit Organizations"},
+         {"project_support_non_profit_organizations",
+          "project_Supporting Non-Profit Organizations"},
          {"project_networking", "project_Networking"},
          {"project_other", "project_Just Browsing"}
        ],

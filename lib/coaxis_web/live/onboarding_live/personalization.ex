@@ -8,6 +8,8 @@ defmodule CoaxisWeb.OnboardingLive.Personalization do
   }
 
   alias CoaxisWeb.OnboardingLive.EngagementInterest
+  alias CoaxisWeb.OnboardingLive.ProjectInterest
+  alias CoaxisWeb.OnboardingLive.MyProfile
 
   def mount(%{"id" => id}, _session, socket) do
     current_step = socket.assigns[:current_step] || :engagement_interests
