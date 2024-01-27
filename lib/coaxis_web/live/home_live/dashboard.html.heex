@@ -20,9 +20,9 @@
     </:search_block>
     <:button_block>
       <.live_component
-        module={CoaxisWeb.ButtonComponent}
-        id="join-btn"
-        text="Join"
+        module={CoaxisWeb.HomeButtonComponent}
+        id="logged-in-home-btn"
+        profile_picture={~p"/images/logged_in_user_profile.png"}
         click_event="signup"
         .
       />
@@ -2782,13 +2782,7 @@
       </div>
     </div>
     <div class="bg-mono-black rounded-md pt-1.5 pr-[29px] pb-1.5 pl-[29px] flex flex-row gap-2.5 items-center justify-center w-[184px] h-[50px] absolute left-[58px] top-[215px]">
-      <.live_component
-        module={CoaxisWeb.ButtonComponent}
-        id="join-coaxis-btn"
-        text="Join Co-Axis"
-        click_event="signup"
-        .
-      />
+      <.live_component module={CoaxisWeb.ButtonComponent} id="welcome-btn" text="Welcome" . />
     </div>
   </div>
   <div class="bg-[#e1d8cd] rounded-md w-[1440px] h-[596px] absolute left-0 top-[1014px] overflow-hidden">
