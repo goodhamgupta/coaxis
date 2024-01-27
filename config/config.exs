@@ -32,7 +32,7 @@ config :coaxis, CoaxisWeb.Endpoint,
 config :coaxis, Coaxis.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure Ash framework
-config :coaxis, ash_apis: [Coaxis.Accounts]
+config :coaxis, ash_apis: [Coaxis.Accounts, Coaxis.Campaigns]
 
 # Configure esbuild (the version is required)
 config :esbuild,

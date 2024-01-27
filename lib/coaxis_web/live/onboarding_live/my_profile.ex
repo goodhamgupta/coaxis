@@ -2,14 +2,9 @@ defmodule CoaxisWeb.OnboardingLive.MyProfile do
   require Ash.Query
   use CoaxisWeb, :live_view
 
-  alias Coaxis.Accounts.Resources.{Interest, User}
+  alias Coaxis.Accounts.Resources.User
   alias Coaxis.Accounts
   alias Ash.Query
-
-  @button_color_mapping %{
-    false => {"mono-light-grey", "mono-black"},
-    true => {"mono-black", "mono-white"}
-  }
 
   @doc """
   Mounts the live view. This function is the first function that is called when a request is made to the LV.
@@ -51,10 +46,9 @@ defmodule CoaxisWeb.OnboardingLive.MyProfile do
     user_obj =
       User |> Query.filter(id == ^user_id) |> Query.select(:id) |> Accounts.read_one!()
 
-    changeset =
-      user_obj
-      |> Ash.Changeset.for_update(:update, cur_params)
-      |> Accounts.update!()
+    user_obj
+    |> Ash.Changeset.for_update(:update, cur_params)
+    |> Accounts.update!()
 
     {:noreply, redirect(socket, to: "/home")}
   end

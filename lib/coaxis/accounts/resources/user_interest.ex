@@ -33,11 +33,14 @@ defmodule Coaxis.Accounts.Resources.UserInterest do
 
   actions do
     # Exposes default built in actions to manage the resource
-    defaults [:read, :destroy]
 
     create :create do
+      primary? true
       upsert? true
     end
+
+    read :read
+    destroy :destroy
 
     # Defines custom read action which fetches post by id.
 
