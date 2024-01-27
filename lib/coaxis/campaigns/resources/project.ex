@@ -34,6 +34,9 @@ defmodule Coaxis.Campaigns.Resources.Project do
     attribute :related_partner, :string, allow_nil?: false
 
     attribute :executive_summary, :string, allow_nil?: true
+
+    create_timestamp :created_at
+    update_timestamp :updated_at
   end
 
   postgres do
