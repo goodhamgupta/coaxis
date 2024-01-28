@@ -1,0 +1,25 @@
+<div class="bg-[#ffffff] w-[1440px] h-[2451px] relative overflow-hidden">
+  <.menu_header title="About">
+    <:logo_block>
+      <.logo />
+    </:logo_block>
+    <:search_block>
+      <.search_bar text="Search" />
+    </:search_block>
+    <:button_block>
+      <.live_component
+        module={CoaxisWeb.HomeButtonComponent}
+        id="logged-in-home-btn"
+        profile_picture={~p"/images/logged_in_user_profile.png"}
+        click_event="signup"
+        .
+      />
+    </:button_block>
+  </.menu_header>
+  <%= case @current_step do %>
+    <% :document_upload -> %>
+      <%= live_render(@socket, DocumentUpload, id: "document_upload") %>
+    <% _ -> %>
+      <%= "" %>
+  <% end %>
+</div>

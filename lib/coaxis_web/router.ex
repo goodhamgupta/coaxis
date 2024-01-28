@@ -26,6 +26,7 @@ defmodule CoaxisWeb.Router do
       on_mount: {CoaxisWeb.LiveUserAuth, :live_user_required} do
       live "/personalization", OnboardingLive.Personalization, :personalization
       live "/dashboard", HomeLive.Dashboard, :dashboard
+      live "/kyc", KycLive.ProjectOnboarding
     end
 
     ash_authentication_live_session :authentication_optional,

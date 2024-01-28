@@ -1,0 +1,153 @@
+<.simple_form for={@form} phx-change="validate" phx-submit="submit">
+  <div class="bg-mono-light-grey rounded-md w-[392px] h-[214px] absolute left-[101px] top-[503px]">
+    <div class="flex flex-row gap-0 items-start justify-start w-[211px] absolute left-[calc(50%_-_105px)] top-[91px]">
+      <div class="bg-mono-light-grey rounded-lg pt-1 pr-3 pb-1 pl-3 flex flex-row gap-1 items-center justify-center flex-1 relative overflow-hidden">
+        <svg
+          class="shrink-0 w-[18px] h-[18px] relative overflow-visible"
+          style=""
+          width="19"
+          height="18"
+          viewBox="0 0 19 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.75 9.75H10.25V14.25H8.75V9.75H4.25V8.25H8.75V3.75H10.25V8.25H14.75V9.75Z"
+            fill="black"
+          />
+        </svg>
+        <div class="text-demo-foundation-black text-center font-p-2-500-font-family text-p-2-500-font-size leading-p-2-500-line-height font-p-2-500-font-weight relative flex items-center justify-center">
+          Add Document
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-[#000000] text-left font-['OpenSans-Bold',_sans-serif] text-3xl leading-[154.68%] font-bold absolute left-[calc(50%_-_619px)] top-[132px]">
+    Documents for your Profile
+  </div>
+  <div class="text-[#000000] text-left font-['OpenSans-Regular',_sans-serif] text-sm leading-[154.68%] font-normal absolute left-[calc(50%_-_619px)] top-[188px]">
+    Upload documents about your company that other users will be able to see.
+    Optional. You can decide who can see the documents after uploading.
+  </div>
+  <div class="text-mono-dark-grey text-left font-['OpenSans-Regular',_sans-serif] text-2xl leading-[154.68%] font-normal absolute left-[calc(50%_-_195px)] top-[136px]">
+    Optional
+  </div>
+  <div class="bg-mono-light-grey rounded-md border-dashed border-mono-dark-grey border w-[392px] h-[214px] absolute left-[99px] top-[252px]">
+    <div class="flex flex-col gap-3.5 items-center justify-start absolute left-[calc(50%_-_94.5px)] top-[calc(50%_-_66px)]">
+      <div class="text-[#000000] text-center font-['Outfit-Bold',_sans-serif] text-xl leading-6 font-bold relative flex items-center justify-center">
+        Impact Thesis
+      </div>
+      <div class="text-mono-dark-grey text-center font-['Outfit-Regular',_sans-serif] text-base leading-6 font-normal relative flex items-center justify-center">
+        Upload your Impact Thesis <br /> (.ppt, .pdf, .keynote)
+      </div>
+      <div class="flex flex-row gap-0 items-start justify-start shrink-0 w-[125px] relative">
+        <div
+          id="impact_thesis_upload"
+          phx-hook="TriggerFileInput"
+          phx-click="trigger_file_input"
+          class="bg-demo-foundation-white rounded-lg pt-1 pr-3 pb-1 pl-3 flex flex-row gap-1 items-center justify-center flex-1 relative overflow-hidden"
+        >
+          <svg
+            class="shrink-0 w-[18px] h-[18px] relative overflow-visible"
+            style=""
+            width="19"
+            height="18"
+            viewBox="0 0 19 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11 1.5H5C4.175 1.5 3.5075 2.175 3.5075 3L3.5 15C3.5 15.825 4.1675 16.5 4.9925 16.5H14C14.825 16.5 15.5 15.825 15.5 15V6L11 1.5ZM14 15H5V3H10.25V6.75H14V15ZM6.5 11.2575L7.5575 12.315L8.75 11.13V14.25H10.25V11.13L11.4425 12.3225L12.5 11.2575L9.5075 8.25L6.5 11.2575Z"
+              fill="black"
+            />
+          </svg>
+          <%!-- <button class="text-demo-foundation-black text-center font-['Outfit-SemiBold',_sans-serif] text-base leading-6 font-semibold relative flex items-center justify-center">
+            Upload File
+          </button> --%>
+          <.live_file_input
+            id="hidden_file_input"
+            upload={@uploads.impact_thesis}
+            type="submit"
+            phx-click="submit_other"
+            class="text-demo-foundation-black text-center font-['Outfit-SemiBold',_sans-serif] text-base leading-6 font-semibold relative flex items-center justify-center overflow-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-mono-light-grey rounded-md border-dashed border-mono-dark-grey border w-[392px] h-[214px] absolute left-[525px] top-[252px]">
+    <div class="flex flex-col gap-3.5 items-center justify-start absolute left-[calc(50%_-_138.5px)] top-[calc(50%_-_66px)]">
+      <div class="text-[#000000] text-center font-['Outfit-Bold',_sans-serif] text-xl leading-6 font-bold relative flex items-center justify-center">
+        Pitch Deck
+      </div>
+      <div class="text-mono-dark-grey text-center font-['Outfit-Regular',_sans-serif] text-base leading-6 font-normal relative flex items-center justify-center">
+        Upload a pitch deck for your Company. <br /> (.ppt, .pdf, .keynote)
+      </div>
+      <div class="flex flex-row gap-0 items-start justify-start shrink-0 w-[125px] relative">
+        <div class="bg-demo-foundation-white rounded-lg pt-1 pr-3 pb-1 pl-3 flex flex-row gap-1 items-center justify-center flex-1 relative overflow-hidden">
+          <svg
+            class="shrink-0 w-[18px] h-[18px] relative overflow-visible"
+            style=""
+            width="19"
+            height="18"
+            viewBox="0 0 19 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11 1.5H5C4.175 1.5 3.5075 2.175 3.5075 3L3.5 15C3.5 15.825 4.1675 16.5 4.9925 16.5H14C14.825 16.5 15.5 15.825 15.5 15V6L11 1.5ZM14 15H5V3H10.25V6.75H14V15ZM6.5 11.2575L7.5575 12.315L8.75 11.13V14.25H10.25V11.13L11.4425 12.3225L12.5 11.2575L9.5075 8.25L6.5 11.2575Z"
+              fill="black"
+            />
+          </svg>
+          <.live_file_input
+            id="hidden_pitch_deck_input"
+            type="submit"
+            upload={@uploads.pitch_deck}
+            phx-click="submit_pitch_deck"
+            class="text-demo-foundation-black text-center font-['Outfit-SemiBold',_sans-serif] text-base leading-6 font-semibold relative flex items-center justify-center"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-mono-light-grey rounded-md border-dashed border-mono-dark-grey border w-[392px] h-[214px] absolute left-[951px] top-[252px]">
+    <div class="flex flex-col gap-3.5 items-center justify-start absolute left-[calc(50%_-_131px)] top-[calc(50%_-_66px)]">
+      <div class="text-[#000000] text-center font-['Outfit-Bold',_sans-serif] text-xl leading-6 font-bold relative flex items-center justify-center">
+        Images / Videos
+      </div>
+      <div class="text-mono-dark-grey text-center font-['Outfit-Regular',_sans-serif] text-base leading-6 font-normal relative flex items-center justify-center">
+        Upload images or videos. <br /> (max. 20mb, .jpeg, .png, .mp4, .mov)
+      </div>
+      <div class="flex flex-row gap-0 items-start justify-start shrink-0 w-[125px] relative">
+        <div class="bg-demo-foundation-white rounded-lg pt-1 pr-3 pb-1 pl-3 flex flex-row gap-1 items-center justify-center flex-1 relative overflow-hidden">
+          <svg
+            class="shrink-0 w-[18px] h-[18px] relative overflow-visible"
+            style=""
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.5 1.5H4.5C3.675 1.5 3.0075 2.175 3.0075 3L3 15C3 15.825 3.6675 16.5 4.4925 16.5H13.5C14.325 16.5 15 15.825 15 15V6L10.5 1.5ZM13.5 15H4.5V3H9.75V6.75H13.5V15ZM6 11.2575L7.0575 12.315L8.25 11.13V14.25H9.75V11.13L10.9425 12.3225L12 11.2575L9.0075 8.25L6 11.2575Z"
+              fill="black"
+            />
+          </svg>
+          <.live_file_input
+            id="media_input"
+            type="submit"
+            upload={@uploads.media}
+            phx-click="submit_media"
+            class="text-demo-foundation-black text-center font-['Outfit-SemiBold',_sans-serif] text-base leading-6 font-semibold relative flex items-center justify-center"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <.live_component
+    module={CoaxisWeb.ProjectFooterComponent}
+    id="project-footer"
+    current_step={@current_step}
+  />
+</.simple_form>
