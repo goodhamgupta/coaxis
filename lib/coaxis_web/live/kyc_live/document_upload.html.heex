@@ -32,49 +32,56 @@
   <div class="text-mono-dark-grey text-left font-['OpenSans-Regular',_sans-serif] text-2xl leading-[154.68%] font-normal absolute left-[calc(50%_-_195px)] top-[136px]">
     Optional
   </div>
-  <div class="bg-mono-light-grey rounded-md border-dashed border-mono-dark-grey border w-[392px] h-[214px] absolute left-[99px] top-[252px]">
-    <div class="flex flex-col gap-3.5 items-center justify-start absolute left-[calc(50%_-_94.5px)] top-[calc(50%_-_66px)]">
-      <div class="text-[#000000] text-center font-['Outfit-Bold',_sans-serif] text-xl leading-6 font-bold relative flex items-center justify-center">
-        Impact Thesis
-      </div>
-      <div class="text-mono-dark-grey text-center font-['Outfit-Regular',_sans-serif] text-base leading-6 font-normal relative flex items-center justify-center">
-        Upload your Impact Thesis <br /> (.ppt, .pdf, .keynote)
-      </div>
-      <div class="flex flex-row gap-0 items-start justify-start shrink-0 w-[125px] relative">
-        <div
-          id="impact_thesis_upload"
-          phx-hook="TriggerFileInput"
-          phx-click="trigger_file_input"
-          class="bg-demo-foundation-white rounded-lg pt-1 pr-3 pb-1 pl-3 flex flex-row gap-1 items-center justify-center flex-1 relative overflow-hidden"
-        >
-          <svg
-            class="shrink-0 w-[18px] h-[18px] relative overflow-visible"
-            style=""
-            width="19"
-            height="18"
-            viewBox="0 0 19 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+
+  <%= if @impact_thesis_upload_success do %>
+    <.live_component
+      module={CoaxisWeb.UploadSuccessComponent}
+      id="impact-thesis-upload-success"
+      title="Impact Thesis"
+      file_name="PAS 2022 - CTA Concept Note - Clime Capital Management.pdf"
+    />
+  <% else %>
+    <div class="bg-mono-light-grey rounded-md border-dashed border-mono-dark-grey border w-[392px] h-[214px] absolute left-[99px] top-[252px]">
+      <div class="flex flex-col gap-3.5 items-center justify-start absolute left-[calc(50%_-_94.5px)] top-[calc(50%_-_66px)]">
+        <div class="text-[#000000] text-center font-['Outfit-Bold',_sans-serif] text-xl leading-6 font-bold relative flex items-center justify-center">
+          Impact Thesis
+        </div>
+        <div class="text-mono-dark-grey text-center font-['Outfit-Regular',_sans-serif] text-base leading-6 font-normal relative flex items-center justify-center">
+          Upload your Impact Thesis <br /> (.ppt, .pdf, .keynote)
+        </div>
+        <div class="flex flex-row gap-0 items-start justify-start shrink-0 w-[125px] relative">
+          <div
+            id="impact_thesis_upload"
+            phx-hook="TriggerFileInput"
+            phx-click="trigger_file_input"
+            class="bg-demo-foundation-white rounded-lg pt-1 pr-3 pb-1 pl-3 flex flex-row gap-1 items-center justify-center flex-1 relative overflow-hidden"
           >
-            <path
-              d="M11 1.5H5C4.175 1.5 3.5075 2.175 3.5075 3L3.5 15C3.5 15.825 4.1675 16.5 4.9925 16.5H14C14.825 16.5 15.5 15.825 15.5 15V6L11 1.5ZM14 15H5V3H10.25V6.75H14V15ZM6.5 11.2575L7.5575 12.315L8.75 11.13V14.25H10.25V11.13L11.4425 12.3225L12.5 11.2575L9.5075 8.25L6.5 11.2575Z"
-              fill="black"
+            <svg
+              class="shrink-0 w-[18px] h-[18px] relative overflow-visible"
+              style=""
+              width="19"
+              height="18"
+              viewBox="0 0 19 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 1.5H5C4.175 1.5 3.5075 2.175 3.5075 3L3.5 15C3.5 15.825 4.1675 16.5 4.9925 16.5H14C14.825 16.5 15.5 15.825 15.5 15V6L11 1.5ZM14 15H5V3H10.25V6.75H14V15ZM6.5 11.2575L7.5575 12.315L8.75 11.13V14.25H10.25V11.13L11.4425 12.3225L12.5 11.2575L9.5075 8.25L6.5 11.2575Z"
+                fill="black"
+              />
+            </svg>
+            <.live_file_input
+              id="hidden_file_input"
+              upload={@uploads.impact_thesis}
+              type="submit"
+              phx-click="submit_impact_thesis"
+              class="text-demo-foundation-black text-center font-['Outfit-SemiBold',_sans-serif] text-base leading-6 font-semibold relative flex items-center justify-center overflow-auto"
             />
-          </svg>
-          <%!-- <button class="text-demo-foundation-black text-center font-['Outfit-SemiBold',_sans-serif] text-base leading-6 font-semibold relative flex items-center justify-center">
-            Upload File
-          </button> --%>
-          <.live_file_input
-            id="hidden_file_input"
-            upload={@uploads.impact_thesis}
-            type="submit"
-            phx-click="submit_impact_thesis"
-            class="text-demo-foundation-black text-center font-['Outfit-SemiBold',_sans-serif] text-base leading-6 font-semibold relative flex items-center justify-center overflow-auto"
-          />
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
   <div class="bg-mono-light-grey rounded-md border-dashed border-mono-dark-grey border w-[392px] h-[214px] absolute left-[525px] top-[252px]">
     <div class="flex flex-col gap-3.5 items-center justify-start absolute left-[calc(50%_-_138.5px)] top-[calc(50%_-_66px)]">
       <div class="text-[#000000] text-center font-['Outfit-Bold',_sans-serif] text-xl leading-6 font-bold relative flex items-center justify-center">

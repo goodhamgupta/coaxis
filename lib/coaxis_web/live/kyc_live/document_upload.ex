@@ -15,7 +15,12 @@ defmodule CoaxisWeb.KycLive.DocumentUpload do
   def mount(_params, _session, socket) do
     socket =
       socket
-      |> assign(%{current_step: :document_upload, uploaded_files: [], form: to_form(%{})})
+      |> assign(%{
+        current_step: :document_upload,
+        uploaded_files: [],
+        form: to_form(%{}),
+        impact_thesis_upload_success: false
+      })
       |> allow_upload(:impact_thesis, accept: ~w(.pdf .ppt ), auto_upload: true)
       |> allow_upload(:pitch_deck, accept: ~w(.pdf .ppt ))
       |> allow_upload(:media, accept: ~w(.jpeg .png .mp4 .mov))
@@ -36,6 +41,7 @@ defmodule CoaxisWeb.KycLive.DocumentUpload do
   # TODO: Handle each event separately
   def handle_event(event, _params, socket)
       when event in ["submit_impact_thesis", "submit_pitch_deck", "submit_media"] do
+    socket = assign(socket, impact_thesis_upload_success: true)
     {:noreply, socket}
   end
 
