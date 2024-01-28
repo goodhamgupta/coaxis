@@ -7,10 +7,12 @@ defmodule CoaxisWeb.KycLive.ImpactGoals do
 
   def handle_event("impact_goals_next", _params, socket) do
     # TODO: Change current step to next page
-    {:noreply, assign(socket, current_step: :impact_goals)}
+    send(socket.parent_pid, %{current_step: :impact_thesis})
+    {:noreply, socket}
   end
 
   def handle_event("impact_goals_back", _params, socket) do
-    {:noreply, assign(socket, current_step: :impact_category)}
+    send(socket.parent_pid, %{current_step: :impact_category})
+    {:noreply, socket}
   end
 end

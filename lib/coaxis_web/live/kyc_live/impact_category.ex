@@ -7,7 +7,7 @@ defmodule CoaxisWeb.KycLive.ImpactCategory do
 
   def handle_event("impact_category_next", _params, socket) do
     # TODO: Change current_step
-    send(socket.parent_pid, %{current_step: :impact_category})
+    send(socket.parent_pid, %{current_step: :impact_goals})
     {:noreply, socket}
   end
 

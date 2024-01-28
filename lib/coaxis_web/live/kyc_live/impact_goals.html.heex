@@ -171,14 +171,6 @@
   You can define your goals here or now or later, or upload an Impact Thesis
   Document.
 </div>
-<.live_component
-  module={CoaxisWeb.ProjectFooterComponent}
-  id="project-footer"
-  current_step={@current_step}
-  step_number="4"
-  next_click_event="impact_goals_next"
-  back_click_event="impact_goals_back"
-/>
 <div class="bg-mono-light-grey rounded-md w-[357px] h-[179px] absolute left-[982px] top-[242px]">
 </div>
 <div class="rounded-md w-[285px] h-[164px] absolute left-[1005px] top-[264px] overflow-hidden">
@@ -191,7 +183,7 @@
             <img
               class="w-[53px] h-[50px] absolute left-[3px] top-1"
               style="object-fit: cover"
-              src="screenshot-2023-12-04-at-10-36-10.png"
+              src={~p"/images/equatic_logo.png"}
             />
           </div>
           <div class="flex flex-col gap-1 items-start justify-start shrink-0 relative">
@@ -275,3 +267,11 @@
     reporting.
   </div>
 </div>
+<.live_component
+  module={CoaxisWeb.ProjectFooterComponent}
+  id="project-footer"
+  current_step={@current_step}
+  step_number="4"
+  next_click_event="impact_goals_next"
+  back_click_event="impact_goals_back"
+/>

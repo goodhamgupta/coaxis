@@ -6,6 +6,14 @@ defmodule CoaxisWeb.ProjectFooterComponent do
   attr :max_steps, :integer, required: false, default: 8
   attr :next_click_event, :string, required: true
   attr :back_click_event, :string, required: true
+  attr :large_footer_padding, :string, required: false, default: "false"
+
+  # True => Large footer
+  # TODO: Make this a relative position component. This is a horrible hack.
+  @footer_padding_mapping_px %{
+    "true" => 1318,
+    "false" => 918
+  }
 
   def render(assigns) do
     # TODO: Fix progressbar padding
@@ -20,8 +28,13 @@ defmodule CoaxisWeb.ProjectFooterComponent do
     #   8 => 622.0
     # }
 
+    footer_top_padding = @footer_padding_mapping_px[assigns[:large_footer_padding]]
+
+    div_class =
+      "bg-[#ffffff] w-[1440px] h-[106px] relative left-[calc(50%_-_720px)] top-[#{footer_top_padding}px] overflow-hidden"
+
     ~H"""
-    <div class="bg-[#ffffff] w-[1440px] h-[106px] absolute left-[calc(50%_-_720px)] top-[918px] overflow-hidden">
+    <div class={div_class}>
       <div class="flex flex-row items-start justify-between w-[1160px] absolute left-[calc(50%_-_580px)] top-[27px]">
         <div class="flex flex-row gap-0 items-start justify-start shrink-0 w-[150px] relative">
           <button

@@ -7,7 +7,9 @@ defmodule CoaxisWeb.KycLive.ProjectOnboarding do
     LogoComponent
   }
 
-  alias CoaxisWeb.KycLive.{Details, DocumentUpload, ImpactCategory, ImpactGoals}
+  require Logger
+
+  alias CoaxisWeb.KycLive.{Details, DocumentUpload, ImpactCategory, ImpactGoals, ImpactThesis}
 
   # TODO: Model state transitions as a FSM
   def mount(_params, _session, socket) do
@@ -15,18 +17,9 @@ defmodule CoaxisWeb.KycLive.ProjectOnboarding do
     {:ok, socket}
   end
 
-  def handle_info(%{current_step: :details}, socket) do
-    socket = assign(socket, %{current_step: :details})
-    {:noreply, socket}
-  end
-
-  def handle_info(%{current_step: :impact_category}, socket) do
-    socket = assign(socket, %{current_step: :impact_category})
-    {:noreply, socket}
-  end
-
-  def handle_info(%{current_step: :impact_goals}, socket) do
-    socket = assign(socket, %{current_step: :impact_goals})
+  def handle_info(%{current_step: event}, socket) do
+    Logger.info("Received event: #{inspect(event)}")
+    socket = assign(socket, %{current_step: event})
     {:noreply, socket}
   end
 end
