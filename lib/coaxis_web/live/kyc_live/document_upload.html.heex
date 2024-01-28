@@ -68,7 +68,7 @@
             id="hidden_file_input"
             upload={@uploads.impact_thesis}
             type="submit"
-            phx-click="submit_other"
+            phx-click="submit_impact_thesis"
             class="text-demo-foundation-black text-center font-['Outfit-SemiBold',_sans-serif] text-base leading-6 font-semibold relative flex items-center justify-center overflow-auto"
           />
         </div>
@@ -149,5 +149,7 @@
     module={CoaxisWeb.ProjectFooterComponent}
     id="project-footer"
     current_step={@current_step}
+    next_click_event="document_upload_next"
+    back_click_event="document_upload_back"
   />
 </.simple_form>
