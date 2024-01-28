@@ -7,8 +7,9 @@ defmodule CoaxisWeb.KycLive.ProjectOnboarding do
     LogoComponent
   }
 
-  alias CoaxisWeb.KycLive.{Details, DocumentUpload, ImpactCategory}
+  alias CoaxisWeb.KycLive.{Details, DocumentUpload, ImpactCategory, ImpactGoals}
 
+  # TODO: Model state transitions as a FSM
   def mount(_params, _session, socket) do
     socket = assign(socket, %{current_step: :document_upload})
     {:ok, socket}
@@ -21,6 +22,11 @@ defmodule CoaxisWeb.KycLive.ProjectOnboarding do
 
   def handle_info(%{current_step: :impact_category}, socket) do
     socket = assign(socket, %{current_step: :impact_category})
+    {:noreply, socket}
+  end
+
+  def handle_info(%{current_step: :impact_goals}, socket) do
+    socket = assign(socket, %{current_step: :impact_goals})
     {:noreply, socket}
   end
 end

@@ -23,6 +23,8 @@
       <%= live_render(@socket, Details, id: "details") %>
     <% :impact_category -> %>
       <%= live_render(@socket, ImpactCategory, id: "impact_category") %>
+    <% :impact_goals -> %>
+      <%= live_render(@socket, ImpactGoals, id: "impact_goals") %>
     <% _ -> %>
       <%= "" %>
   <% end %>
