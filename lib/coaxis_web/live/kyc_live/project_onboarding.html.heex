@@ -29,6 +29,8 @@
       <%= live_render(@socket, ImpactThesis, id: "impact_thesis") %>
     <% :impact_funding -> %>
       <%= live_render(@socket, ImpactFunding, id: "impact_funding") %>
+    <% :project_plan -> %>
+      <%= live_render(@socket, ProjectPlan, id: "project_plan") %>
     <% _ -> %>
       <%= "" %>
   <% end %>

@@ -15,7 +15,8 @@ defmodule CoaxisWeb.KycLive.ProjectOnboarding do
     ImpactCategory,
     ImpactGoals,
     ImpactThesis,
-    ImpactFunding
+    ImpactFunding,
+    ProjectPlan
   }
 
   # TODO: Model state transitions as a FSM

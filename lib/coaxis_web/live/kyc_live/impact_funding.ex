@@ -6,7 +6,7 @@ defmodule CoaxisWeb.KycLive.ImpactFunding do
   end
 
   def handle_event("impact_funding_next", _params, socket) do
-    send(socket.parent_pid, %{current_step: :impact_funding})
+    send(socket.parent_pid, %{current_step: :project_plan})
     {:noreply, socket}
   end
 
