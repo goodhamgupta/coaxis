@@ -9,7 +9,14 @@ defmodule CoaxisWeb.KycLive.ProjectOnboarding do
 
   require Logger
 
-  alias CoaxisWeb.KycLive.{Details, DocumentUpload, ImpactCategory, ImpactGoals, ImpactThesis}
+  alias CoaxisWeb.KycLive.{
+    Details,
+    DocumentUpload,
+    ImpactCategory,
+    ImpactGoals,
+    ImpactThesis,
+    ImpactFunding
+  }
 
   # TODO: Model state transitions as a FSM
   def mount(_params, _session, socket) do

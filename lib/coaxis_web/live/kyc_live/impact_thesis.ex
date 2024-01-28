@@ -6,10 +6,12 @@ defmodule CoaxisWeb.KycLive.ImpactThesis do
   end
 
   def handle_event("impact_thesis_next", _params, socket) do
-    {:noreply, assign(socket, current_step: :impact_thesis)}
+    send(socket.parent_pid, %{current_step: :impact_funding})
+    {:noreply, socket}
   end
 
   def handle_event("impact_thesis_back", _params, socket) do
-    {:noreply, assign(socket, current_step: :impact_goals)}
+    send(socket.parent_pid, %{current_step: :impact_goals})
+    {:noreply, socket}
   end
 end
