@@ -1,7 +1,7 @@
 defmodule CoaxisWeb.ProjectFooterComponent do
   use Phoenix.LiveComponent
 
-  attr :current_step, :integer, required: true
+  attr :current_step, :string, required: true
   attr :step_number, :integer, required: false, default: 1
   attr :max_steps, :integer, required: false, default: 8
   attr :next_click_event, :string, required: true
@@ -27,7 +27,7 @@ defmodule CoaxisWeb.ProjectFooterComponent do
           <button
             type="button"
             phx-click={@back_click_event}
-            class="bg-demo-foundation-white rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center flex-1 relative overflow-hidden"
+            class="bg-demo-foundation-white rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center flex-1 relative overflow-hidden z-[9999]"
           >
             <div class="text-demo-foundation-black text-left font-['Outfit-SemiBold',_sans-serif] text-xl leading-6 font-semibold relative flex items-center justify-start">
               Back
@@ -37,7 +37,7 @@ defmodule CoaxisWeb.ProjectFooterComponent do
         <button
           type="button"
           phx-click={@next_click_event}
-          class="bg-demo-foundation-black rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center shrink-0 w-[150px] relative overflow-hidden"
+          class="bg-demo-foundation-black rounded-lg pt-3 pr-6 pb-3 pl-6 flex flex-row gap-2 items-center justify-center shrink-0 w-[150px] relative overflow-hidden z-[9999]"
         >
           <div class="text-demo-foundation-white text-left font-['Outfit-SemiBold',_sans-serif] text-xl leading-6 font-semibold relative flex items-center justify-start">
             Submit

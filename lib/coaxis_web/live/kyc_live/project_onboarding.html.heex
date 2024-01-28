@@ -21,6 +21,8 @@
       <%= live_render(@socket, DocumentUpload, id: "document_upload") %>
     <% :details -> %>
       <%= live_render(@socket, Details, id: "details") %>
+    <% :impact_category -> %>
+      <%= live_render(@socket, ImpactCategory, id: "impact_category") %>
     <% _ -> %>
       <%= "" %>
   <% end %>
