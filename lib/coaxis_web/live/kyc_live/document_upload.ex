@@ -1,14 +1,6 @@
 defmodule CoaxisWeb.KycLive.DocumentUpload do
   use CoaxisWeb, :live_view
 
-  # import CoaxisWeb.{
-  #   HeaderComponent,
-  #   SearchBarComponent,
-  #   LogoComponent
-  # }
-
-  # 20MB in bytes
-  @media_max_file_size 20 * 1024 * 1024
   import Phoenix.Component
   import CoaxisWeb.CoreComponents
 
@@ -34,6 +26,7 @@ defmodule CoaxisWeb.KycLive.DocumentUpload do
   end
 
   # TDOO: Add file size validation
+  # @media_max_file_size 20 * 1024 * 1024
   def handle_event("validate", _params, socket) do
     {:noreply, socket}
   end

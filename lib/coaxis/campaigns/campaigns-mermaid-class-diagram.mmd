@@ -1,0 +1,23 @@
+classDiagram
+    class Project {
+        UUID id
+        String name
+        String description
+        String website_url
+        String linkedin_url
+        Atom status
+        Atom type
+        String location
+        String focus_geography
+        String related_partner
+        Atom intent_type
+        String executive_summary
+        destroy()
+        update(UUID id, String name, String description, String website_url, ...)
+        read()
+        create(UUID id, String name, String description, String website_url, ...)
+        by_id(UUID id)
+        by_name(String name)
+    }
+
+
