@@ -50,6 +50,6 @@ defmodule CoaxisWeb.OnboardingLive.MyProfile do
     |> Ash.Changeset.for_update(:update, cur_params)
     |> Accounts.update!()
 
-    {:noreply, redirect(socket, to: "/home")}
+    {:noreply, redirect(socket, to: "/dashboard")}
   end
 end

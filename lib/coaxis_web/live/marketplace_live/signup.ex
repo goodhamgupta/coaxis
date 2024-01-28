@@ -55,6 +55,8 @@ defmodule CoaxisWeb.MarketplaceLive.Signup do
 
     case Strategy.action(strategy, :register, cur_params) do
       {:ok, _user} ->
+        # Perform signin to store user data in session
+        {:ok, _conn} = Strategy.action(strategy, :sign_in, cur_params)
         # TODO: Publish user_id
         {:noreply, push_navigate(socket, to: "/personalization")}
 

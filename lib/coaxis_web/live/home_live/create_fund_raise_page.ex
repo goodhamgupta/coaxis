@@ -12,6 +12,7 @@ defmodule CoaxisWeb.HomeLive.CreateFundRaisePage do
     {:ok, socket}
   end
 
-  def handle_event("submit", _params, socket) do
+  def handle_event("start", _params, socket) do
+    {:noreply, push_navigate(socket, to: "/kyc")}
   end
 end

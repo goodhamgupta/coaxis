@@ -20,7 +20,6 @@ defmodule CoaxisWeb.HomeLive.Dashboard do
       end
 
     socket = assign(socket, %{user_logged_in: user_logged_in, new_user: true})
-    IO.inspect(socket)
     {:ok, socket}
   end
 end
