@@ -7,10 +7,15 @@ defmodule CoaxisWeb.KycLive.ProjectOnboarding do
     LogoComponent
   }
 
-  alias CoaxisWeb.KycLive.DocumentUpload
+  alias CoaxisWeb.KycLive.{Details, DocumentUpload}
 
   def mount(_params, _session, socket) do
     socket = assign(socket, %{current_step: :document_upload})
     {:ok, socket}
+  end
+
+  def handle_info(%{current_step: :details}, socket) do
+    socket = assign(socket, %{current_step: :details})
+    {:noreply, socket}
   end
 end

@@ -55,6 +55,9 @@ defmodule CoaxisWeb.KycLive.DocumentUpload do
         {:ok, ~p"/uploads/#{entry.client_name}"}
       end)
 
+    # Send message to parent live view
+    send(socket.parent_pid, %{current_step: :details})
+
     {:noreply, update(socket, :uploaded_files, &(&1 ++ uploaded_files))}
   end
 end

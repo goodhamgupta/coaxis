@@ -19,6 +19,8 @@
   <%= case @current_step do %>
     <% :document_upload -> %>
       <%= live_render(@socket, DocumentUpload, id: "document_upload") %>
+    <% :details -> %>
+      <%= live_render(@socket, Details, id: "details") %>
     <% _ -> %>
       <%= "" %>
   <% end %>
