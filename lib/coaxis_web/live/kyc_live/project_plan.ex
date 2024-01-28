@@ -7,7 +7,7 @@ defmodule CoaxisWeb.KycLive.ProjectPlan do
   end
 
   def handle_event("project_plan_next", _params, socket) do
-    send(socket.parent_pid, %{current_step: :project_plan})
+    send(socket.parent_pid, %{current_step: :project_verification})
 
     {:noreply, socket}
   end

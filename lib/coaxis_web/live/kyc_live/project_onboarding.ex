@@ -16,12 +16,15 @@ defmodule CoaxisWeb.KycLive.ProjectOnboarding do
     ImpactGoals,
     ImpactThesis,
     ImpactFunding,
-    ProjectPlan
+    ProjectPlan,
+    ProjectVerification
   }
 
   # TODO: Model state transitions as a FSM
   def mount(_params, _session, socket) do
-    socket = assign(socket, %{current_step: :document_upload})
+    # socket = assign(socket, %{current_step: :document_upload})
+    Logger.error("FIXME: Change current_step to document_upload")
+    socket = assign(socket, %{current_step: :project_verification})
     {:ok, socket}
   end
 
