@@ -1,4 +1,4 @@
-defmodule CoaxisWeb.ProjectFooterComponent do
+defmodule CoaxisWeb.ProjectFooterLargeComponent do
   use Phoenix.LiveComponent
 
   attr :current_step, :string, required: true
@@ -30,7 +30,7 @@ defmodule CoaxisWeb.ProjectFooterComponent do
     # footer_top_padding = @footer_padding_mapping_px[assigns[:large_footer_padding]]
 
     ~H"""
-    <div class="bg-[#ffffff] w-[1440px] h-[106px] relative left-[calc(50%_-_720px)] top-[918px] overflow-hidden">
+    <div class="bg-[#ffffff] w-[1440px] h-[106px] relative left-[calc(50%_-_720px)] top-[1318px] overflow-hidden">
       <div class="flex flex-row items-start justify-between w-[1160px] absolute left-[calc(50%_-_580px)] top-[27px]">
         <div class="flex flex-row gap-0 items-start justify-start shrink-0 w-[150px] relative">
           <button
