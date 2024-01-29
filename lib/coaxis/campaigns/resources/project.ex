@@ -57,9 +57,10 @@ defmodule Coaxis.Campaigns.Resources.Project do
     repo Coaxis.Repo
   end
 
-  identities do
-    identity :unique_name, [:name]
-  end
+  # FIXME: Add this constraint back after showing errors in the UI
+  # identities do
+  #   identity :unique_name, [:name]
+  # end
 
   code_interface do
     define_for Coaxis.Campaigns
