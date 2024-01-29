@@ -2,7 +2,7 @@
   <div class="bg-mono-light-grey rounded-md w-[357px] h-[179px] absolute left-[982px] top-[242px]">
   </div>
   <div class="flex flex-col gap-5 items-start justify-start absolute left-[476px] top-[248px]">
-    <%= select(@form, :status, ["Active", "Inactive"],
+    <%= select(@form, :status, [{"Active", "active"}, {"Inactive", "inactive"}],
       class:
         "bg-mono-white rounded-md border-solid border-mono-grey border pt-1 pr-5 pb-1 pl-5 shrink-0 w-[300px] h-[50px] relative overflow-hidden text-[#000000] text-left font-['Outfit-Regular',_sans-serif] text-base leading-[154.68%] font-normal left-0.3 top-[4.5px] z-[999]",
       style: "background: url(~p'/images/keyboard_arrow_down.png') no-repeat right;"

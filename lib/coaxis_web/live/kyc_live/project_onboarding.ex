@@ -22,8 +22,7 @@ defmodule CoaxisWeb.KycLive.ProjectOnboarding do
 
   # TODO: Model state transitions as a FSM
   def mount(_params, _session, socket) do
-    Logger.error("Change initial step to :document_upload after tests.")
-    socket = assign(socket, %{current_step: :project_plan, project_id: nil})
+    socket = assign(socket, %{current_step: :document_upload, project_id: nil})
     {:ok, socket}
   end
 
