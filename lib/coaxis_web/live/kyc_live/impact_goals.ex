@@ -30,6 +30,7 @@ defmodule CoaxisWeb.KycLive.ImpactGoals do
   end
 
   def handle_event("impact_goals_next", _params, socket) do
+    # TODO: Add logic to check if form has been submitted before storing.
     case Form.submit(socket.assigns.form) do
       {:ok, _impact_goal} ->
         send(socket.parent_pid, %{current_step: :impact_thesis})
