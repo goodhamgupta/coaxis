@@ -1,6 +1,8 @@
 defmodule CoaxisWeb.KycLive.ImpactGoals do
   use CoaxisWeb, :live_view
 
+  use CoaxisWeb.KycLive.Constants
+
   alias Coaxis.Campaigns
   alias Coaxis.Campaigns.Resources.ImpactGoal
   alias AshPhoenix.Form
@@ -12,7 +14,11 @@ defmodule CoaxisWeb.KycLive.ImpactGoals do
   def mount(_params, _session, socket) do
     # TODO: Add support to modify form using Ash.Form
     form =
-      Form.for_action(ImpactGoal, :create, api: Campaigns, as: "impact_goal", params: %{})
+      Form.for_action(ImpactGoal, :create,
+        api: Campaigns,
+        as: "impact_goal",
+        params: %{"desired_outcome" => @impact_goal_desired_outcome}
+      )
       |> to_form()
 
     {:ok, assign(socket, current_step: :impact_goals, form: form)}

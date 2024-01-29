@@ -21,6 +21,8 @@ defmodule CoaxisWeb.KycLive.Constants do
       @project_location "singapore"
       @project_focus_geography "apac"
       @project_related_partner "temasek_foundation"
+
+      @impact_goal_desired_outcome "Reduce ‘carbon lock-in’ from regional grid systems that face growing peak load."
     end
   end
 end
