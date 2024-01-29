@@ -42,7 +42,8 @@ defmodule CoaxisWeb.KycLive.Details do
   def handle_event("details_next", _params, socket) do
     case Form.submit(socket.assigns.form) do
       {:ok, project} ->
-        send(socket.parent_pid, %{current_step: :impact_thesis, project_id: project.id})
+        send(socket.parent_pid, %{current_step: :impact_category, project_id: project.id})
+        socket = assign(socket, project_id: project.id)
         {:noreply, socket}
 
       {:error, form} ->
