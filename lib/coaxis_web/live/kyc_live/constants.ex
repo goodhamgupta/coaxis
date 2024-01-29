@@ -23,6 +23,11 @@ defmodule CoaxisWeb.KycLive.Constants do
       @project_related_partner "temasek_foundation"
 
       @impact_goal_desired_outcome "Reduce ‘carbon lock-in’ from regional grid systems that face growing peak load."
+
+      @impact_thesis_proposed_solution "Support projects in Southeast Asia to adopt energy efficiency, empower industries with scalable solutions at no initial cost, and provide technology for utilities to manage peak energy demand efficiently."
+      @impact_thesis_target_beneficiaries """
+      In Indonesia, energy efficiency projects target Greater Jakarta, with demand-side management in Bali and East Java. The Philippines will see similar initiatives in Luzon and Metro Manila, focusing on commercial and industrial sectors. Vietnam's efforts are concentrated in Ho Chi Minh, Hanoi, and Danang, especially within the industrial sector, aiming for broader scaling and utility engagement.
+      """
     end
   end
 end
