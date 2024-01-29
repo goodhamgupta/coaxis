@@ -170,11 +170,11 @@
       <img src={~p"/images/keyboard_arrow_down.png"} />
     </div>
   </div>
-  <div class="bg-mono-light-grey rounded-md border-solid border-mono-grey border pt-3 pr-5 pb-3 pl-5 flex flex-row gap-2.5 items-start justify-start w-[414px] h-[50px] absolute right-[925px] top-[341px] overflow-hidden">
-    <div class="text-[#000000] text-left font-['Outfit-Regular',_sans-serif] text-base leading-[154.68%] font-normal relative">
-      $
-    </div>
-  </div>
+  <%= text_input(@form, :funding_goal,
+    placeholder: 2_000_000,
+    class:
+      "bg-mono-light-grey rounded-md border-solid border-mono-grey border pt-3 pr-5 pb-3 pl-5 flex flex-row gap-2.5 items-start justify-start w-[414px] h-[50px] absolute right-[925px] top-[341px] overflow-hidden z-[999]"
+  ) %>
   <div class="bg-mono-light-grey rounded-md border-solid border-mono-grey border pt-3 pr-5 pb-3 pl-5 flex flex-row gap-2.5 items-start justify-start w-[239px] h-[50px] absolute right-[664px] top-[341px] overflow-hidden">
     <div class="text-[#000000] text-left font-['Outfit-Regular',_sans-serif] text-base leading-[154.68%] font-normal relative">
       $
