@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.31.1">
+    <meta name="project" content="coaxis v0.1.0">
+
+
+    <title>API Reference — coaxis v0.1.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-FM2CSD74.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-43PMFBC7.js"></script>
+    <script src="dist/sidebar_items-269FFD30.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/html-L4O5OK2K.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<div class="background-layer"></div>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="api-reference.html" class="sidebar-projectName" translate="no">
+coaxis
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.1.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+      <div class="top-search">
+        <div class="search-settings">
+          <form class="search-bar" action="search.html">
+            <label class="search-label">
+              <span class="sr-only">Search documentation of coaxis</span>
+              <input name="q" type="text" class="search-input" placeholder="Search Documentation (press /)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+            </label>
+            <button type="submit" class="search-button" aria-label="Submit Search">
+              <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+            </button>
+            <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+              <i class="ri-close-line ri-lg" title="Cancel search"></i>
+            </button>
+          </form>
+          <div class="autocomplete">
+          </div>
+          <button class="icon-settings display-settings">
+            <i class="ri-settings-3-line"></i>
+            <span class="sr-only">Settings</span>
+          </button>
+        </div>
+
+      </div>
+
+<h1>
+
+
+  <span>API Reference <small class="app-vsn">coaxis v0.1.0</small></span>
+</h1>
+
+
+  <section class="details-list">
+    <h2 id="modules" class="section-heading">
+  <a href="#modules" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Modules</span>
+</h2>
+
+    <div class="summary">
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.html" translate="no">Coaxis</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Coaxis keeps the contexts that define your domain
+and business logic.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Accounts.html" translate="no">Coaxis.Accounts</a>
+
+  </div>
+
+    <div class="summary-synopsis"></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Accounts.Emails.html" translate="no">Coaxis.Accounts.Emails</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Delivers emails.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Accounts.Resources.Interest.html" translate="no">Coaxis.Accounts.Resources.Interest</a>
+
+  </div>
+
+    <div class="summary-synopsis"></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Accounts.Resources.Token.html" translate="no">Coaxis.Accounts.Resources.Token</a>
+
+  </div>
+
+    <div class="summary-synopsis"></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Accounts.Resources.User.html" translate="no">Coaxis.Accounts.Resources.User</a>
+
+  </div>
+
+    <div class="summary-synopsis"></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Accounts.Resources.UserInterest.html" translate="no">Coaxis.Accounts.Resources.UserInterest</a>
+
+  </div>
+
+    <div class="summary-synopsis"></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Accounts.Secrets.html" translate="no">Coaxis.Accounts.Secrets</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Accounts.User.Senders.SendPasswordResetEmail.html" translate="no">Coaxis.Accounts.User.Senders.SendPasswordResetEmail</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Sends a password reset email to the user.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Campaigns.html" translate="no">Coaxis.Campaigns</a>
+
+  </div>
+
+    <div class="summary-synopsis"></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Campaigns.Resources.ImpactGoal.html" translate="no">Coaxis.Campaigns.Resources.ImpactGoal</a>
+
+  </div>
+
+    <div class="summary-synopsis"></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Campaigns.Resources.ImpactThesis.html" translate="no">Coaxis.Campaigns.Resources.ImpactThesis</a>
+
+  </div>
+
+    <div class="summary-synopsis"></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Campaigns.Resources.Project.html" translate="no">Coaxis.Campaigns.Resources.Project</a>
+
+  </div>
+
+    <div class="summary-synopsis"></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.LiveUserAuth.html" translate="no">Coaxis.LiveUserAuth</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Helpers for authenticating users in LiveViews.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Mailer.html" translate="no">Coaxis.Mailer</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Coaxis.Repo.html" translate="no">Coaxis.Repo</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.html" translate="no">CoaxisWeb</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>The entrypoint for defining your web interface, such
+as controllers, components, channels, and so on.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.AuthController.html" translate="no">CoaxisWeb.AuthController</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.AuthHTML.html" translate="no">CoaxisWeb.AuthHTML</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.AuthLive.AuthForm.html" translate="no">CoaxisWeb.AuthLive.AuthForm</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.AuthLive.Index.html" translate="no">CoaxisWeb.AuthLive.Index</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.ButtonComponent.html" translate="no">CoaxisWeb.ButtonComponent</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.CoreComponents.html" translate="no">CoaxisWeb.CoreComponents</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Provides core UI components.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.Endpoint.html" translate="no">CoaxisWeb.Endpoint</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.ErrorHTML.html" translate="no">CoaxisWeb.ErrorHTML</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.ErrorJSON.html" translate="no">CoaxisWeb.ErrorJSON</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.FormFieldComponent.html" translate="no">CoaxisWeb.FormFieldComponent</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.Gettext.html" translate="no">CoaxisWeb.Gettext</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A module providing Internationalization with a gettext-based API.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.HeaderComponent.html" translate="no">CoaxisWeb.HeaderComponent</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.HomeButtonComponent.html" translate="no">CoaxisWeb.HomeButtonComponent</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Button Component when the user is logged in. Currently, it will show the notifications icon and the user's profile picture.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.HomeLive.CreateFundRaisePage.html" translate="no">CoaxisWeb.HomeLive.CreateFundRaisePage</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.HomeLive.Dashboard.html" translate="no">CoaxisWeb.HomeLive.Dashboard</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>This is the live view for the home page.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.KycLive.Constants.html" translate="no">CoaxisWeb.KycLive.Constants</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.KycLive.Details.html" translate="no">CoaxisWeb.KycLive.Details</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.KycLive.DocumentUpload.html" translate="no">CoaxisWeb.KycLive.DocumentUpload</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.KycLive.ImpactCategory.html" translate="no">CoaxisWeb.KycLive.ImpactCategory</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.KycLive.ImpactFunding.html" translate="no">CoaxisWeb.KycLive.ImpactFunding</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.KycLive.ImpactGoals.html" translate="no">CoaxisWeb.KycLive.ImpactGoals</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.KycLive.ImpactThesis.html" translate="no">CoaxisWeb.KycLive.ImpactThesis</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.KycLive.ProjectOnboarding.html" translate="no">CoaxisWeb.KycLive.ProjectOnboarding</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.KycLive.ProjectPlan.html" translate="no">CoaxisWeb.KycLive.ProjectPlan</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.KycLive.ProjectVerification.html" translate="no">CoaxisWeb.KycLive.ProjectVerification</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.Layouts.html" translate="no">CoaxisWeb.Layouts</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.LiveUserAuth.html" translate="no">CoaxisWeb.LiveUserAuth</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Helpers for authenticating users in LiveViews.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.LogoComponent.html" translate="no">CoaxisWeb.LogoComponent</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.MarketplaceLive.PreLogin.html" translate="no">CoaxisWeb.MarketplaceLive.PreLogin</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.MarketplaceLive.Signup.html" translate="no">CoaxisWeb.MarketplaceLive.Signup</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.OauthButtonComponent.html" translate="no">CoaxisWeb.OauthButtonComponent</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.OnboardingLive.EngagementInterest.html" translate="no">CoaxisWeb.OnboardingLive.EngagementInterest</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.OnboardingLive.MyProfile.html" translate="no">CoaxisWeb.OnboardingLive.MyProfile</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.OnboardingLive.Personalization.html" translate="no">CoaxisWeb.OnboardingLive.Personalization</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.OnboardingLive.ProjectInterest.html" translate="no">CoaxisWeb.OnboardingLive.ProjectInterest</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.ProjectFooterComponent.html" translate="no">CoaxisWeb.ProjectFooterComponent</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.ProjectFooterLargeComponent.html" translate="no">CoaxisWeb.ProjectFooterLargeComponent</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.Router.html" translate="no">CoaxisWeb.Router</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.SearchBarComponent.html" translate="no">CoaxisWeb.SearchBarComponent</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.Telemetry.html" translate="no">CoaxisWeb.Telemetry</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="CoaxisWeb.UploadSuccessComponent.html" translate="no">CoaxisWeb.UploadSuccessComponent</a>
+
+  </div>
+
+</div>
+
+    </div>
+  </section>
+
+
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+  </div>
+  <div class="bottom-actions-item">
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="coaxis.epub" title="ePub version">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.31.1) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</main>
+</div>
+
+
+  </body>
+</html>

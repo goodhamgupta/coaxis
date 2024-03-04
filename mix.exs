@@ -57,7 +57,8 @@ defmodule Coaxis.MixProject do
       {:ash_postgres, "~> 1.4"},
       {:ash_authentication, "~> 3.12"},
       {:ash_authentication_phoenix, "~> 1.9"},
-      {:surface, "~> 0.11.1"}
+      {:surface, "~> 0.11.1"},
+      {:ex_doc, "~> 0.21", only: :dev, runtime: false}
     ]
   end
 
