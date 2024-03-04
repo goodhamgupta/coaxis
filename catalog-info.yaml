@@ -4,7 +4,7 @@ metadata:
   name: coaxis
   annotations:
     github.com/project-slug: Digital-Cloud-Team-Singapore/coaxis
-    backstage.io/techdocs-ref: coaxis
+    backstage.io/techdocs-ref: dir: .
 spec:
   type: other
   lifecycle: unknown

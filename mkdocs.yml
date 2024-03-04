@@ -1,0 +1,7 @@
+site_name: 'coaxis'
+
+nav:
+  - Home: doc/index.html
+
+plugins: 
+  - techdocs-core
